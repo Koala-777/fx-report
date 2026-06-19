@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antigravity AI | プレミアム相場見通しレポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-dark: #020617;
+        --bg-gradient: radial-gradient(circle at top left, #1e1b4b, #020617 70%);
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.08);
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --neon-green: #34d399;
+        --neon-red: #f87171;
+        --neon-blue: #60a5fa;
+        --neon-purple: #c084fc;
+        --neon-yellow: #fbbf24;
+    }
+    
+    body {
+        margin: 0; padding: 30px;
+        background: var(--bg-gradient);
+        background-attachment: fixed;
+        color: var(--text-main);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+    }
+    
+    .container { max-width: 1440px; margin: 0 auto; position: relative; z-index: 1; }
+    
+    /* Background subtle animated glow */
+    .bg-glow {
+        position: fixed; top: -20%; left: -10%; width: 50vw; height: 50vw;
+        background: radial-gradient(circle, rgba(96,165,250,0.15) 0%, transparent 70%);
+        border-radius: 50%; filter: blur(80px); animation: float 15s infinite alternate ease-in-out; z-index: 0;
+    }
+    .bg-glow-2 {
+        position: fixed; bottom: -20%; right: -10%; width: 60vw; height: 60vw;
+        background: radial-gradient(circle, rgba(192,132,252,0.1) 0%, transparent 70%);
+        border-radius: 50%; filter: blur(80px); animation: float2 20s infinite alternate ease-in-out; z-index: 0;
+    }
+    @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(100px, 50px); } }
+    @keyframes float2 { 0% { transform: translate(0, 0); } 100% { transform: translate(-80px, -60px); } }
+
+    /* Header styling */
+    .header {
+        display: flex; justify-content: space-between; align-items: flex-end;
+        margin-bottom: 40px; border-bottom: 1px solid var(--glass-border); padding-bottom: 20px;
+    }
+    .header-brand { display: flex; flex-direction: column; }
+    .ai-badge {
+        align-self: flex-start;
+        background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+        padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800;
+        letter-spacing: 1px; margin-bottom: 8px; font-family: 'Outfit', sans-serif;
+        box-shadow: 0 0 15px rgba(192,132,252,0.4); text-transform: uppercase;
+    }
+    .header h1 {
+        margin: 0; font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 700;
+        background: linear-gradient(to right, #ffffff, #94a3b8);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .timestamp { font-size: 16px; color: var(--neon-blue); font-family: 'Outfit', sans-serif; font-weight: 300; }
+
+    /* Glassmorphism Cards */
+    .glass-panel {
+        background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative; overflow: hidden;
+    }
+    .glass-panel:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(96, 165, 250, 0.1);
+        border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Panel decoration */
+    .glass-panel::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+        background: var(--neon-blue); border-radius: 16px 0 0 16px; opacity: 0.5;
+    }
+    .glass-panel.purple-accent::before { background: var(--neon-purple); }
+    .glass-panel.green-accent::before { background: var(--neon-green); }
+
+    .panel-title {
+        font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500;
+        margin: 0 0 20px 0; color: #fff; letter-spacing: 0.5px;
+        display: flex; align-items: center; gap: 8px;
+    }
+
+    /* Grid Layouts */
+    .grid { display: grid; gap: 24px; }
+    .layout-top { grid-template-columns: 2fr 1fr; margin-bottom: 24px; }
+    .layout-markets { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 24px; }
+    .layout-details { grid-template-columns: repeat(3, 1fr); margin-bottom: 24px; }
+
+    /* Market Tickers */
+    .ticker { text-align: center; }
+    .ticker .name { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .ticker .price { font-size: 24px; font-family: 'Outfit', sans-serif; font-weight: 700; margin: 8px 0; }
+    .up { color: var(--neon-green); text-shadow: 0 0 8px rgba(52, 211, 153, 0.4); }
+    .down { color: var(--neon-red); text-shadow: 0 0 8px rgba(248, 113, 113, 0.4); }
+    .neutral { color: var(--neon-yellow); text-shadow: 0 0 8px rgba(251, 191, 36, 0.4); }
+    
+    /* Antigravity AI Insights Section */
+    .ai-insight-box {
+        background: linear-gradient(135deg, rgba(192,132,252,0.1), rgba(96,165,250,0.05));
+        border-radius: 12px; padding: 16px; margin-top: 12px;
+        border: 1px solid rgba(192,132,252,0.3); position: relative;
+    }
+    .ai-insight-box::after {
+        content: 'AI PREDICTION'; position: absolute; top: -10px; right: 16px;
+        background: var(--bg-dark); color: var(--neon-purple); font-size: 10px;
+        padding: 2px 8px; border: 1px solid var(--neon-purple); border-radius: 10px; letter-spacing: 1px;
+    }
+
+    ul.custom-list { list-style: none; padding: 0; margin: 0; }
+    ul.custom-list li {
+        position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 14px;
+    }
+    ul.custom-list li::before {
+        content: '▹'; position: absolute; left: 0; top: 0; color: var(--neon-blue); font-size: 16px;
+    }
+
+    /* Volatility Gauges / Progress Bars */
+    .volatility-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 16px; overflow: hidden; position: relative; }
+    .volatility-fill { height: 100%; background: linear-gradient(90deg, var(--neon-green), var(--neon-red)); width: 80%; border-radius: 3px; }
+    .volatility-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; }
+
+    /* Scenario Tags */
+    .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
+    .scenario-card { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .scenario-title { font-size: 12px; font-weight: 600; margin-bottom: 4px; display: flex; justify-content: space-between;}
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .layout-top { grid-template-columns: 1fr; }
+        .layout-details { grid-template-columns: 1fr; }
+        .layout-markets { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .header { flex-direction: column; align-items: flex-start; gap: 12px; }
+        .header h1 { font-size: 24px; }
+        body { padding: 12px; }
+        .glass-panel { padding: 16px; }
+    }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="bg-glow-2"></div>
+
+<div class="container">
+    <div class="header">
+        <div class="header-brand">
+            <span class="ai-badge">Antigravity AI Report</span>
+            <h1>市場インテリジェンス・ダッシュボード</h1>
+        </div>
+        <div class="timestamp">UPDATE: 2026/06/19 22:00 JST</div>
+    </div>
+
+    <!-- AI Overview & Heatmap -->
+    <div class="grid layout-top">
+        <div class="glass-panel purple-accent">
+            <h2 class="panel-title"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> AIマクロシンセシス (市場の全体俯瞰)</h2>
+            <ul class="custom-list">
+                <li><span style="color:var(--neon-green); font-weight:600;">日経平均、最高値更新（71,250.06円）：</span>大引けにかけて買いが入り、ついに終値ベースでの最高値を更新しました。夜間先物はすでに71,960.00円まで駆け上がっており、来週早々にも「現物での7万2000円突破」が確実視されています。</li>
+                <li><span style="color:var(--neon-yellow); font-weight:600;">ドル円は161.26円でNY市場へ突入：</span>161円台に定着したまま、不気味なほど値動きが停滞しています。投機筋は「週末の薄商い」を狙った覆面介入を極度に恐れており、嵐の前の静けさとなっています。</li>
+                <li><span style="color:var(--neon-red); font-weight:600;">金相場のメルトダウン（4,152.80ドル）：</span>米国の高金利（利回り4.464%）の持続に加え、中東の緊張緩和が決定打となり、金相場はパニック的な投げ売り状態（メルトダウン）に陥っています。</li>
+            </ul>
+            <div class="ai-insight-box">
+                <strong style="color:var(--text-main);">Antigravity AI 分析:</strong> NY市場オープン（22:30）に向けて最大の注目は「金曜日特有の激しいポジション調整」です。日経先物は超絶なリスクオンで買われていますが、ドル円は介入警戒で動けず、金は暴落と、アセットごとに方向性が完全にバラバラな「いびつな相場」になっています。週末を控えて急に「現金化（リスクオフ）」の波が押し寄せる危険性があります。
+            </div>
+        </div>
+
+        <div class="glass-panel green-accent">
+            <h2 class="panel-title"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> NY市場のクリティカル・イベント</h2>
+            <ul class="custom-list" style="margin-top: 16px;">
+                <li style="margin-bottom: 16px;">
+                    <div style="font-size: 18px; font-weight:600; color:var(--text-main);">22:30 NY市場オープン</div>
+                    <div style="font-size: 12px; color:var(--neon-yellow);">米国株がオープン直後にどう動くか。米国株の下落は日経先物（71,960円）の冷や水となります。</div>
+                </li>
+                <li>
+                    <div style="font-size: 18px; font-weight:600; color:var(--text-main);">土日前の手仕舞い売り</div>
+                    <div style="font-size: 12px; color:var(--text-muted);">今週の大幅な利益（特に日本株）を確定させる動きがNY時間後半にかけて強まる傾向にあります。</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Live Tickers -->
+    <div class="glass-panel" style="margin-bottom: 24px; padding: 20px;">
+        <div class="grid layout-markets">
+            <div class="ticker">
+                <div class="name">US 10Y Yield</div>
+                <div class="price up">4.464%</div>
+                <div class="name">高止まり継続</div>
+            </div>
+            <div class="ticker">
+                <div class="name">WTI Crude</div>
+                <div class="price up">77.82</div>
+                <div class="name">時間外で反発</div>
+            </div>
+            <div class="ticker">
+                <div class="name">Gold (XAU)</div>
+                <div class="price down">4,152.80</div>
+                <div class="name">パニック的投げ売り</div>
+            </div>
+            <div class="ticker">
+                <div class="name">Nikkei 225</div>
+                <div class="price up">71,250.06</div>
+                <div class="name">終値・最高値更新</div>
+            </div>
+            <div class="ticker">
+                <div class="name">USD/JPY</div>
+                <div class="price neutral">161.26</div>
+                <div class="name">極限の介入警戒</div>
+            </div>
+            <div class="ticker">
+                <div class="name">EUR/USD</div>
+                <div class="price down">1.1445</div>
+                <div class="name">ユーロ売り継続</div>
+            </div>
+            <div class="ticker">
+                <div class="name">BTC/USD</div>
+                <div class="price down">63,140.50</div>
+                <div class="name">ハイテク株安に連れ安</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deep Dive Panels -->
+    <div class="grid layout-details">
+        <!-- USD/JPY -->
+        <div class="glass-panel">
+            <h2 class="panel-title">USD/JPY <span style="font-size:12px; background: rgba(251,191,36,0.2); color:var(--neon-yellow); padding: 2px 8px; border-radius: 12px; margin-left: auto;">超厳戒態勢</span></h2>
+            <div style="font-size: 32px; font-family: 'Outfit'; font-weight: 700;">161.26</div>
+            <p style="font-size: 13px; color:var(--text-muted); margin-bottom: 16px;">
+                161.81円の高値をつけて以降、161.20円〜161.40円という極端に狭いレンジで完全にフリーズしています。「週末のNY時間」は、過去の日銀・財務省が為替介入を仕掛けた実績がある魔の時間帯であり、誰も手出しができません。
+            </p>
+            <div class="volatility-bar"><div class="volatility-fill" style="width: 100%; background: var(--neon-red);"></div></div>
+            <div class="volatility-label"><span>覆面介入リスク</span><span>MAXIMUM</span></div>
+
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="down">▼ 週末の奇襲介入</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">NY市場の薄商いを狙った財務省の奇襲介入が炸裂し、157円台へ瞬時に4円幅の暴落。</div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="up">▲ ジリ高シナリオ</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">介入警戒を嘲笑うかのように、金利差を背景にしたドル買いがジリジリと進み161.50円を回復。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gold (XAU) -->
+        <div class="glass-panel">
+            <h2 class="panel-title">Gold (XAU) <span style="font-size:12px; background: rgba(248,113,113,0.2); color:var(--neon-red); padding: 2px 8px; border-radius: 12px; margin-left: auto;">メルトダウン</span></h2>
+            <div style="font-size: 32px; font-family: 'Outfit'; font-weight: 700;">4,152.80 <span style="font-size: 14px; color:var(--text-muted);">USD/oz</span></div>
+            <p style="font-size: 13px; color:var(--text-muted); margin-bottom: 16px;">
+                金相場の下落に歯止めがかかりません。米国の根強いインフレ懸念（高金利の長期化）と地政学リスクの後退が重なり、ファンド勢のロングポジション（買い持ち）の強制ロスカットが連鎖しています。
+            </p>
+            <div class="volatility-bar"><div class="volatility-fill" style="width: 95%; background: var(--neon-red);"></div></div>
+            <div class="volatility-label"><span>下落モメンタム</span><span>EXTREME</span></div>
+
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="down">▼ 4,000ドル防衛戦</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">下げ止まる材料が見当たらず、心理的・テクニカルな最終防衛ラインである4,000ドルを目指す展開。</div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="up">▲ デッド・キャット・バウンス</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">売られすぎのシグナル点灯により、週末の手仕舞い（買い戻し）が入って4,200ドル台へ急反発。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nikkei 225 Futures -->
+        <div class="glass-panel">
+            <h2 class="panel-title">Nikkei 225 (夜間) <span style="font-size:12px; background: rgba(52,211,153,0.2); color:var(--neon-green); padding: 2px 8px; border-radius: 12px; margin-left: auto;">猛烈な買い意欲</span></h2>
+            <div style="font-size: 32px; font-family: 'Outfit'; font-weight: 700;">71,960.00</div>
+            <p style="font-size: 13px; color:var(--text-muted); margin-bottom: 16px;">
+                大引けでの最高値更新（71,250円）の熱狂が冷めやらず、夜間取引（先物）では外国人投資家の買い上がりが継続しています。NYダウが堅調にスタートすれば、7万2000円到達は時間の問題です。
+            </p>
+            <div class="volatility-bar"><div class="volatility-fill" style="width: 85%; background: linear-gradient(90deg, var(--neon-yellow), var(--neon-green));"></div></div>
+            <div class="volatility-label"><span>上昇ポテンシャル</span><span>VERY HIGH</span></div>
+            
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="up">▲ 7万2000円突破</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">米国株の上昇と円安（161円台）の好条件が揃い、文句なしの7万2000円台乗せを達成する。</div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="down">▼ 週末の利食い急落</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">今週のあまりの急ピッチな上昇に対し、NY時間後半にかけて「高値警戒感」からの利益確定売りが殺到する。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
