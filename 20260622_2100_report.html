@@ -179,6 +179,43 @@
     }
 
     .summary-box h3 { margin: 0 0 8px 0; font-size: 14px; color: #854d0e; }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .grid-layout {
+            grid-template-columns: 1fr;
+        }
+        .market-view-grid {
+            grid-template-columns: 1fr;
+        }
+        .header-main {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .header-main .meta-info {
+            text-align: left;
+        }
+        .report-container {
+            padding: 12px;
+        }
+        .market-card {
+            flex-direction: column;
+        }
+        .market-card-header {
+            width: auto;
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px;
+        }
+        .market-card-level {
+            width: auto;
+            border-left: none;
+            border-top: 1px solid var(--border-color);
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
 </style>
 </head>
 <body>
