@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マーケットレポート_2026-06-26_21-00</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-blue: #1e3a8a; /* Navy blue */
+        --light-blue: #eff6ff;
+        --border-color: #cbd5e1;
+        --text-main: #334155;
+        --text-dark: #0f172a;
+        --up-color: #ef4444; /* Red for up in Japan */
+        --down-color: #3b82f6; /* Blue for down */
+        --neutral-color: #64748b;
+    }
+    
+    body {
+        margin: 0; padding: 20px;
+        background-color: #ffffff;
+        color: var(--text-main);
+        font-family: 'Noto Sans JP', sans-serif;
+        line-height: 1.5;
+        font-size: 13px;
+    }
+
+    .report-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        border: 1px solid var(--border-color);
+        padding: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid var(--primary-blue);
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+    }
+
+    .header-main h1 {
+        margin: 0;
+        font-size: 28px;
+        color: var(--primary-blue);
+        font-weight: 700;
+        word-break: keep-all;
+    }
+
+    .header-main .meta-info {
+        text-align: right;
+        font-size: 12px;
+        color: var(--text-main);
+    }
+
+    .section-title {
+        background-color: var(--primary-blue);
+        color: #ffffff;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+    }
+
+    th, td {
+        border: 1px solid var(--border-color);
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: var(--light-blue);
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+
+    td {
+        background-color: #ffffff;
+    }
+
+    .text-up { color: var(--up-color); font-weight: 700; }
+    .text-down { color: var(--down-color); font-weight: 700; }
+    .text-neutral { color: var(--neutral-color); font-weight: 700; }
+
+    .bullet-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .bullet-list li {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 8px;
+    }
+
+    .bullet-list li::before {
+        content: '■';
+        position: absolute;
+        left: 0;
+        color: var(--primary-blue);
+        font-size: 10px;
+        top: 4px;
+    }
+
+    .panel {
+        border: 1px solid var(--border-color);
+        height: 100%;
+        background-color: #ffffff;
+    }
+
+    .panel-content {
+        padding: 12px;
+    }
+
+    /* specific sections */
+    .market-view-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .market-card {
+        border: 1px solid var(--border-color);
+        display: flex;
+        align-items: stretch;
+    }
+
+    .market-card-header {
+        background-color: var(--light-blue);
+        padding: 8px;
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid var(--border-color);
+        font-weight: 700;
+    }
+
+    .market-card-body {
+        padding: 8px 12px;
+        flex: 1;
+    }
+
+    .market-card-level {
+        background-color: #f8fafc;
+        padding: 8px;
+        width: 100px;
+        border-left: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 11px;
+    }
+
+    .summary-box {
+        background-color: #fefce8;
+        border: 1px solid #fde047;
+        padding: 12px;
+        border-radius: 4px;
+    }
+
+    .summary-box h3 { margin: 0 0 8px 0; font-size: 14px; color: #854d0e; }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .grid-layout {
+            grid-template-columns: 1fr;
+        }
+        .market-view-grid {
+            grid-template-columns: 1fr;
+        }
+        .header-main {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .header-main h1 {
+            font-size: 20px;
+            word-break: keep-all;
+        }
+        .header-main .meta-info {
+            text-align: left;
+        }
+        .report-container {
+            padding: 12px;
+        }
+        .panel-content {
+            overflow-x: auto;
+        }
+        table {
+            min-width: 300px;
+        }
+        .market-card {
+            flex-direction: column;
+        }
+        .market-card-header {
+            width: auto;
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px;
+        }
+        .market-card-level {
+            width: auto;
+            border-left: none;
+            border-top: 1px solid var(--border-color);
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="report-container">
+    <div class="header-main">
+        <h1>マーケットレポート｜2026/06/26（金）21:00（欧州〜NY前）</h1>
+        <div class="meta-info">
+            作成日時：2026/06/26 21:55<br>
+            （日本時間）
+        </div>
+    </div>
+
+    <div class="summary-box" style="margin-bottom: 20px;">
+        <h3>■ 総合判断</h3>
+        <p style="margin: 0;">週末を控えた金曜日の市場は、前日の米PCE上振れによる「インフレ再燃」の解釈が大きく分かれています。ゴールドはインフレヘッジとしての資金が猛烈に流入し、歴史的な4,000ドル台を回復する急反発を見せました。一方、日経平均は米ハイテク株の利益確定売りに押されて軟調な展開。注目のドル円は介入警戒感から161.60円台へとわずかにクールダウンしていますが、依然として162円突破の火種は燻っており、週末の持ち越しリスクが非常に高い相場環境です。</p>
+    </div>
+
+    <div class="grid-layout">
+        <!-- Section 1 -->
+        <div class="panel">
+            <h2 class="section-title">1. 主要市場の現在地（21:40時点）</h2>
+            <div class="panel-content">
+                <table>
+                    <tr>
+                        <th>銘柄</th>
+                        <th>現在値</th>
+                        <th>方向</th>
+                    </tr>
+                    <tr>
+                        <td>日経225先物</td>
+                        <td>71,250</td>
+                        <td class="text-down">反落 ↓</td>
+                    </tr>
+                    <tr>
+                        <td>USD/JPY</td>
+                        <td>161.61</td>
+                        <td class="text-neutral">もみ合い →</td>
+                    </tr>
+                    <tr>
+                        <td>原油 (WTI)</td>
+                        <td>69.72</td>
+                        <td class="text-down">下値這い ↓</td>
+                    </tr>
+                    <tr>
+                        <td>金 (XAU/USD)</td>
+                        <td>4,026.75</td>
+                        <td class="text-up">歴史的急反発 ↑</td>
+                    </tr>
+                    <tr>
+                        <td>EUR/USD</td>
+                        <td>1.1375</td>
+                        <td class="text-up">反発 ↑</td>
+                    </tr>
+                    <tr>
+                        <td>BTCUSD</td>
+                        <td>60,030</td>
+                        <td class="text-down">節目割れ警戒 ↓</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="panel">
+            <h2 class="section-title">2. 東京〜欧州時間における主な変動要因</h2>
+            <div class="panel-content">
+                <ul class="bullet-list">
+                    <li><strong>ゴールドが歴史的4,000ドル台を回復：</strong><br>
+                        前日のPCE上振れを受け、当初は金利高で売られたゴールドですが、「インフレ再燃に対する究極のヘッジ（回避）資産」としての見方が強まり、実需と投機筋の強烈な買い戻しが発生。再び4,000ドルの大台へ乗せています。
+                    </li>
+                    <li><strong>ハイテク株の利益確定売り：</strong><br>
+                        AI・半導体セクターのバリュエーション高が警戒され、週末を前に手仕舞い売りが優勢。日経225先物も72,000円台から反落しています。
+                    </li>
+                    <li><strong>ドル円は嵐の前の静けさ：</strong><br>
+                        161.80円まで急騰した前日からわずかにクールダウン（161.60円台）。しかし週末に日銀の覆面介入が入るリスクを恐れ、誰も大きなポジションを傾けられないチキンレースが続いています。
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="panel" style="margin-bottom: 20px;">
+        <h2 class="section-title">3. 各市場の見通しとNY時間の注目材料</h2>
+        <div class="panel-content market-view-grid">
+            
+            <div class="market-card">
+                <div class="market-card-header">
+                    日経225先物<br><span class="text-down">弱気</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li>米ハイテク株の調整に連動し上値が重い展開。</li>
+                        <li><strong>メイン：</strong>週末の手仕舞い売りに押され、71,000円を試す軟調な推移。</li>
+                        <li><strong>リスク：</strong>NY市場でのAI関連株のパニック売り波及。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：71,800</div>
+                    <div>下値：70,500</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    USD/JPY<br><span class="text-neutral">警戒継続</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li>介入を恐れて161.60円台で膠着。</li>
+                        <li><strong>メイン：</strong>週末を前にしたポジション調整のドル売りで、やや上値が重い。</li>
+                        <li><strong>リスク：</strong>薄商いのNY午後における、仕掛け的な162円突破と介入の激突。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：162.00</div>
+                    <div>下値：161.00</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    原油 (WTI)<br><span class="text-down">下落トレンド</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li>中東情勢の緩和が引き続き重しとなり、70ドル割れが定着。</li>
+                        <li><strong>メイン：</strong>69ドル台での下値這い。上値の重い展開が継続。</li>
+                        <li><strong>リスク：</strong>週末の中東の突発的なニュースによる窓開け急反発。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：70.50</div>
+                    <div>下値：68.00</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    ゴールド<br><span class="text-up">強気反転</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li>インフレヘッジ買いで4,000ドル台を奪還。</li>
+                        <li><strong>メイン：</strong>4,000ドル台での足場固め。インフレ懸念が強力な下支え。</li>
+                        <li><strong>リスク：</strong>急反発による短期的な利益確定売り。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：4,050</div>
+                    <div>下値：3,980</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    EUR/USD<br><span class="text-up">小幅反発</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li>1.13前半での底堅さを見せ、週末の買い戻しが流入。</li>
+                        <li><strong>メイン：</strong>1.13台後半〜1.14台での底練りの展開。</li>
+                        <li><strong>リスク：</strong>突発的なユーロ圏のネガティブニュース。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：1.1420</div>
+                    <div>下値：1.1320</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    BTCUSD<br><span class="text-down">節目攻防</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li>60,000ドルの心理的節目に張り付き、Extreme Fear（極度の恐怖）状態。</li>
+                        <li><strong>メイン：</strong>60,000ドル前後での神経質なもみ合い。</li>
+                        <li><strong>リスク：</strong>週末の薄商いを狙った6万ドル割れの仕掛け売り。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：61,500</div>
+                    <div>下値：58,000</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
