@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マーケットレポート_2026-06-30_07-00</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-blue: #1e3a8a; /* Navy blue */
+        --light-blue: #eff6ff;
+        --border-color: #cbd5e1;
+        --text-main: #334155;
+        --text-dark: #0f172a;
+        --up-color: #ef4444; /* Red for up in Japan */
+        --down-color: #3b82f6; /* Blue for down */
+        --neutral-color: #64748b;
+    }
+    
+    body {
+        margin: 0; padding: 20px;
+        background-color: #ffffff;
+        color: var(--text-main);
+        font-family: 'Noto Sans JP', sans-serif;
+        line-height: 1.5;
+        font-size: 13px;
+    }
+
+    .report-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        border: 1px solid var(--border-color);
+        padding: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid var(--primary-blue);
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+    }
+
+    .header-main h1 {
+        margin: 0;
+        font-size: 28px;
+        color: var(--primary-blue);
+        font-weight: 700;
+        word-break: keep-all;
+    }
+
+    .header-main .meta-info {
+        text-align: right;
+        font-size: 12px;
+        color: var(--text-main);
+    }
+
+    .section-title {
+        background-color: var(--primary-blue);
+        color: #ffffff;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+    }
+
+    th, td {
+        border: 1px solid var(--border-color);
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: var(--light-blue);
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+
+    td {
+        background-color: #ffffff;
+    }
+
+    .text-up { color: var(--up-color); font-weight: 700; }
+    .text-down { color: var(--down-color); font-weight: 700; }
+    .text-neutral { color: var(--neutral-color); font-weight: 700; }
+
+    .bullet-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .bullet-list li {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 8px;
+    }
+
+    .bullet-list li::before {
+        content: '■';
+        position: absolute;
+        left: 0;
+        color: var(--primary-blue);
+        font-size: 10px;
+        top: 4px;
+    }
+
+    .panel {
+        border: 1px solid var(--border-color);
+        height: 100%;
+        background-color: #ffffff;
+    }
+
+    .panel-content {
+        padding: 12px;
+    }
+
+    .summary-box {
+        background-color: #fefce8;
+        border: 1px solid #fde047;
+        padding: 12px;
+        border-radius: 4px;
+    }
+
+    .summary-box h3 { margin: 0 0 8px 0; font-size: 14px; color: #854d0e; }
+
+    .market-card {
+        border: 1px solid var(--border-color);
+        display: flex;
+        align-items: stretch;
+        margin-bottom: 12px;
+    }
+    .market-card-header {
+        background-color: var(--light-blue);
+        padding: 8px;
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid var(--border-color);
+        font-weight: 700;
+    }
+    .market-card-body {
+        padding: 8px 12px;
+        flex: 1;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .grid-layout {
+            grid-template-columns: 1fr;
+        }
+        .header-main {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .header-main h1 {
+            font-size: 20px;
+        }
+        .header-main .meta-info {
+            text-align: left;
+        }
+        .market-card {
+            flex-direction: column;
+        }
+        .market-card-header {
+            width: auto;
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="report-container">
+    <div class="header-main">
+        <h1>マーケットレポート｜2026/06/30（火）07:00</h1>
+        <div class="meta-info">
+            作成日時：2026/06/30 07:55<br>
+            （日本時間）
+        </div>
+    </div>
+
+    <div class="summary-box" style="margin-bottom: 20px;">
+        <h3>■ 総合判断：ハイテク株の劇的な反発と介入警戒の極み</h3>
+        <p style="margin: 0;">週明けのNY市場では、先週まで売り叩かれていたハイテク・メガキャップ（Mag7）に強烈な「押し目買い（Buy the Dip）」が入り、ナスダックは+2.1%の大幅高となりました。サムスンとSKハイニックスの約5,180億ドル規模のAI投資提携もセンチメントを押し上げています。一方、為替市場ではドル円が161.90円台と「162円の防衛ライン」にピタリと張り付いており、本日の日銀短観や米雇用動態調査（JOLTs）の結果次第では、いよいよ政府・日銀による実力行使（為替介入）が発動する危険水域に達しています。</p>
+    </div>
+
+    <div class="grid-layout">
+        <!-- Section 1 -->
+        <div class="panel">
+            <h2 class="section-title">1. 前日終値（NY市場クローズ時点）</h2>
+            <div class="panel-content">
+                <table>
+                    <tr>
+                        <th>銘柄</th>
+                        <th>終値</th>
+                        <th>方向</th>
+                    </tr>
+                    <tr>
+                        <td>NYダウ</td>
+                        <td>52,182.74</td>
+                        <td class="text-up">+0.6% ↑</td>
+                    </tr>
+                    <tr>
+                        <td>S&P 500</td>
+                        <td>7,440.43</td>
+                        <td class="text-up">+1.2% ↑</td>
+                    </tr>
+                    <tr>
+                        <td>ナスダック</td>
+                        <td>25,820.14</td>
+                        <td class="text-up">+2.1% ↑</td>
+                    </tr>
+                    <tr>
+                        <td>日経225先物</td>
+                        <td>69,468</td>
+                        <td class="text-up">小幅高 ↑</td>
+                    </tr>
+                    <tr>
+                        <td>USD/JPY</td>
+                        <td>161.91</td>
+                        <td class="text-up">超高値圏 ↑</td>
+                    </tr>
+                    <tr>
+                        <td>原油 (WTI)</td>
+                        <td>70.46</td>
+                        <td class="text-up">70ドル回復 ↑</td>
+                    </tr>
+                    <tr>
+                        <td>金 (XAU/USD)</td>
+                        <td>4,015.24</td>
+                        <td class="text-neutral">高値維持 →</td>
+                    </tr>
+                    <tr>
+                        <td>EUR/USD</td>
+                        <td>1.1404</td>
+                        <td class="text-neutral">高値維持 →</td>
+                    </tr>
+                    <tr>
+                        <td>BTCUSD</td>
+                        <td>60,300</td>
+                        <td class="text-neutral">もみ合い →</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="panel">
+            <h2 class="section-title">2. センチメントとバリュエーション</h2>
+            <div class="panel-content">
+                <ul class="bullet-list">
+                    <li><strong>Fear & Greed Index（株式）:</strong> 27（Fear - 恐怖）<br>
+                        先週の「Extreme Fear（24台）」からわずかに改善したものの、依然として市場は強い警戒感を持っています。
+                    </li>
+                    <li><strong>Fear & Greed Index（暗号資産）:</strong> 12（Extreme Fear - 極度の恐怖）<br>
+                        6万ドルの節目ギリギリで耐えているものの、市場心理は完全に冷え込んでおり、ちょっとした悪材料で投げ売りが出やすい状態です。
+                    </li>
+                    <li><strong>日経225の過熱感:</strong><br>
+                        先週の乱高下（72,000円到達からの下落）を経て、日経平均は69,000円台半ばでスピード調整（日柄調整）中。RSI等のテクニカル指標は中立水準まで冷え込んでおり、次のカタリスト（本日の日銀短観など）待ちの姿勢です。
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="panel" style="margin-bottom: 20px;">
+        <h2 class="section-title">3. NY市場の振り返りと本日の重要イベント</h2>
+        <div class="panel-content">
+            <div style="margin-bottom: 16px;">
+                <strong>【NY市場の振り返り】</strong><br>
+                週明けの米国株は、5日続落していた鬱憤を晴らすかのような「買い戻し」主導の展開となりました。特にAlphabet、Tesla、Amazonなどの「マグニフィセント・セブン（Mag7）」が再始動。さらに、韓国サムスンとSKハイニックスによる超巨額のAI半導体設備投資提携（約5,180億ドル）のニュースが、AI関連銘柄の強気センチメントを再点火させました。
+            </div>
+            <div>
+                <strong>【本日の重要イベント（日本時間）】</strong>
+                <ul class="bullet-list">
+                    <li><strong>08:50【日本】日銀短観（第2四半期）</strong><br>
+                        ⇒ 日経平均の方向性および、日銀の7月利上げに向けた重要な判断材料。</li>
+                    <li><strong>23:00【米国】CB消費者信頼感指数（6月）</strong><br>
+                        ⇒ 先週のPCE上振れと対照的に、消費者のマインドがどう変化しているか。</li>
+                    <li><strong>23:00【米国】JOLTs求人件数（5月）</strong><br>
+                        ⇒ 週末の雇用統計の前哨戦。労働市場の過熱感を見極める最重要指標。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="panel">
+        <h2 class="section-title">4. 個別銘柄・市場の見通し（本日）</h2>
+        <div class="panel-content">
+            
+            <div class="market-card">
+                <div class="market-card-header">日経225先物<br><span class="text-up">強気</span></div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="margin:0; padding-left:16px; font-size:12px;">
+                        <li>現在価格：69,468円</li>
+                        <li>メインシナリオ：NYのハイテク株高を引き継ぎ、ギャップアップスタートから70,000円の大台回復を試す展開。</li>
+                        <li>リスク要因：日銀短観の悪化、または為替介入による円高ショック。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">USD/JPY<br><span class="text-neutral">超警戒</span></div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="margin:0; padding-left:16px; font-size:12px;">
+                        <li>現在価格：161.91円</li>
+                        <li>メインシナリオ：162円の防衛ラインを巡る神経戦。JOLTsの発表まで膠着が続く。</li>
+                        <li>リスク要因：162円突破の瞬間に投下される「数兆円規模の政府介入（数円の暴落）」。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">原油 (WTI)<br><span class="text-up">底打ち</span></div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="margin:0; padding-left:16px; font-size:12px;">
+                        <li>現在価格：70.46ドル</li>
+                        <li>メインシナリオ：70ドル割れの安値から自律反発。米国の夏場のドライブシーズン需要を意識。</li>
+                        <li>リスク要因：米国の強い経済指標によるドル高再燃。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">ゴールド<br><span class="text-neutral">高値維持</span></div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="margin:0; padding-left:16px; font-size:12px;">
+                        <li>現在価格：4,015.24ドル</li>
+                        <li>メインシナリオ：4,000ドル台での足場固め。インフレヘッジとしての資金が下値を支える。</li>
+                        <li>リスク要因：米金利の急上昇による利益確定売り。</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
