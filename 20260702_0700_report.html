@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マーケットレポート_2026-07-02_07-00</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-blue: #1e3a8a;
+        --light-blue: #eff6ff;
+        --border-color: #cbd5e1;
+        --text-main: #334155;
+        --text-dark: #0f172a;
+        --up-color: #ef4444;
+        --down-color: #3b82f6;
+        --neutral-color: #64748b;
+    }
+    
+    body {
+        margin: 0; padding: 20px;
+        background-color: #ffffff;
+        color: var(--text-main);
+        font-family: 'Noto Sans JP', sans-serif;
+        line-height: 1.5;
+        font-size: 13px;
+    }
+
+    .report-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        border: 1px solid var(--border-color);
+        padding: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid var(--primary-blue);
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+    }
+
+    .header-main h1 {
+        margin: 0;
+        font-size: 28px;
+        color: var(--primary-blue);
+        font-weight: 700;
+        word-break: keep-all;
+    }
+
+    .header-main .meta-info {
+        text-align: right;
+        font-size: 12px;
+        color: var(--text-main);
+    }
+
+    .section-title {
+        background-color: var(--primary-blue);
+        color: #ffffff;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+    }
+
+    th, td {
+        border: 1px solid var(--border-color);
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: var(--light-blue);
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+
+    td {
+        background-color: #ffffff;
+    }
+
+    .text-up { color: var(--up-color); font-weight: 700; }
+    .text-down { color: var(--down-color); font-weight: 700; }
+    .text-neutral { color: var(--neutral-color); font-weight: 700; }
+
+    .bullet-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .bullet-list li {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 8px;
+    }
+
+    .bullet-list li::before {
+        content: '■';
+        position: absolute;
+        left: 0;
+        color: var(--primary-blue);
+        font-size: 10px;
+        top: 4px;
+    }
+
+    .panel {
+        border: 1px solid var(--border-color);
+        height: 100%;
+        background-color: #ffffff;
+    }
+
+    .panel-content {
+        padding: 12px;
+    }
+
+    .market-view-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .market-card {
+        border: 1px solid var(--border-color);
+        display: flex;
+        align-items: stretch;
+    }
+
+    .market-card-header {
+        background-color: var(--light-blue);
+        padding: 8px;
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid var(--border-color);
+        font-weight: 700;
+    }
+
+    .market-card-body {
+        padding: 8px 12px;
+        flex: 1;
+    }
+
+    .market-card-level {
+        background-color: #f8fafc;
+        padding: 8px;
+        width: 100px;
+        border-left: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 11px;
+    }
+
+    .summary-box {
+        background-color: #fefce8;
+        border: 1px solid #fde047;
+        padding: 12px;
+        border-radius: 4px;
+    }
+
+    .summary-box h3 { margin: 0 0 8px 0; font-size: 14px; color: #854d0e; }
+
+    @media (max-width: 768px) {
+        .grid-layout { grid-template-columns: 1fr; }
+        .market-view-grid { grid-template-columns: 1fr; }
+        .header-main { flex-direction: column; align-items: flex-start; gap: 8px; }
+        .header-main h1 { font-size: 20px; }
+        .header-main .meta-info { text-align: left; }
+        .report-container { padding: 12px; }
+        .panel-content { overflow-x: auto; }
+        table { min-width: 300px; }
+        .market-card { flex-direction: column; }
+        .market-card-header { width: auto; border-right: none; border-bottom: 1px solid var(--border-color); padding: 12px; }
+        .market-card-level { width: auto; border-left: none; border-top: 1px solid var(--border-color); flex-direction: row; justify-content: space-around; }
+    }
+</style>
+</head>
+<body>
+
+<div class="report-container">
+    <div class="header-main">
+        <h1>マーケットレポート｜2026/07/02（木）07:00</h1>
+        <div class="meta-info">
+            作成日時：2026/07/02 07:46<br>
+            （日本時間）
+        </div>
+    </div>
+
+    <div class="summary-box" style="margin-bottom: 20px;">
+        <h3>■ 総合判断：米景気減速のサインと、実質ゴトー日のドル需要が交錯する複雑な1日</h3>
+        <p style="margin: 0;">昨晩発表された米国の重要指標（ADP雇用統計、ISM製造業景況指数）が相次いで市場予想を下回り、米国の景気減速が意識され米金利低下・ドル売り圧力が強まりました。一方で、本日の東京市場は「米国三連休と週末」を見越した**実質的なゴトー日（5・10日）**にあたります。実需の強烈なドル買い需要が控えており、ファンダメンタルズのドル売りと、需給のドル買いが激しくぶつかり合う展開が予想されます。</p>
+    </div>
+
+    <!-- Section: 概要情報 -->
+    <div class="panel" style="margin-bottom: 20px;">
+        <h2 class="section-title">全体俯瞰</h2>
+        <div class="panel-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <ul class="bullet-list">
+                    <li><strong>今日の相場テーマ：</strong>実質ゴトー日の実需のドル買い vs 米景気減速によるドル売り</li>
+                    <li><strong>今日の主導市場：</strong>東京時間は「国内の輸入実需（ドル買い）」主導。欧州・NY時間は「米国の経済指標・金利」主導。</li>
+                    <li><strong>前回からの変化：</strong>米金利高・ドル高から、弱い米経済指標に反応した金利低下・ドル売りへ。ただし東京時間は実質ゴトー日で逆行も。</li>
+                    <li><strong>材料と値動きの整合性：</strong>「材料と需給の綱引き」。グローバルには指標悪化でドル安も、東京時間は局所的な実需でドル買い。</li>
+                </ul>
+            </div>
+            <div>
+                <ul class="bullet-list">
+                    <li><strong>クロスアセット資金フロー：</strong>株式から安全資産（債券・ゴールド）へシフト。ただし東京時間はドル決済需要が強制的なフローに。</li>
+                    <li><strong>ポジションの偏り：</strong>円ショート（ドルロング）が高水準。実需のドル買いが一巡した後は、今夜の雇用統計に向けた投機筋のロング手仕舞いが急増するリスクあり。</li>
+                    <li><strong>需給・ポジショニング：</strong>東京時間は実質ゴトー日による輸入企業のドル買いが極めて強い時間帯。日経先物は短期過熱から利益確定売り発生中。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel" style="margin-bottom: 20px;">
+        <h2 class="section-title">主要市場の前営業日終値一覧（2026年7月1日）</h2>
+        <div class="panel-content">
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>前営業日終値</th>
+                    <th>前日比</th>
+                    <th>前日比％</th>
+                    <th>方向</th>
+                    <th>採用値・備考</th>
+                </tr>
+                <tr><td>Dow</td><td>52,305.24</td><td>-13.96</td><td>-0.1%</td><td class="text-down">下落 ↓</td><td>FRED基準</td></tr>
+                <tr><td>Nasdaq</td><td>26,040.03</td><td>-173.69</td><td>-0.7%</td><td class="text-down">下落 ↓</td><td>FRED基準</td></tr>
+                <tr><td>S&P 500</td><td>7,483.23</td><td>-16.13</td><td>-0.2%</td><td class="text-down">下落 ↓</td><td>FRED基準</td></tr>
+                <tr><td>日経225現物</td><td>70,474.96</td><td>+412.64</td><td>+0.59%</td><td class="text-up">上昇 ↑</td><td>日経公式終値</td></tr>
+                <tr><td>CME日経225先物</td><td>69,695</td><td>-945</td><td>-1.33%</td><td class="text-down">大幅下落 ↓</td><td>CME公式円建て（大取日中比）</td></tr>
+                <tr><td>日経225先物（大取）</td><td>69,610</td><td>-1030</td><td>-1.45%</td><td class="text-down">大幅下落 ↓</td><td>夜間取引終値（日中比）</td></tr>
+                <tr><td>USD/JPY</td><td>162.52</td><td>-</td><td>-</td><td class="text-down">下落 ↓</td><td>Investing.com</td></tr>
+                <tr><td>EUR/USD</td><td>1.1383</td><td>-</td><td>-</td><td class="text-down">弱含み ↓</td><td>Investing.com</td></tr>
+                <tr><td>ゴールド (XAU/USD)</td><td>$4,000.00</td><td>+26.6</td><td>+0.67%</td><td class="text-up">上昇 ↑</td><td>Investing.com（スポット）</td></tr>
+                <tr><td>原油 (WTI)</td><td>$69.50</td><td>-0.64</td><td>-0.92%</td><td class="text-down">下落 ↓</td><td>Investing.com（先物）</td></tr>
+                <tr><td>BTCUSD</td><td>$60,096</td><td>+1,886</td><td>+3.24%</td><td class="text-up">大幅反発 ↑</td><td>Investing.com</td></tr>
+                <tr><td>VIX</td><td>16.23</td><td>-</td><td>-</td><td class="text-neutral">横ばい →</td><td>FRED基準</td></tr>
+                <tr><td>日経VI</td><td>33.78</td><td>-</td><td>-</td><td class="text-down">低下 ↓</td><td>日経公式終値</td></tr>
+                <tr><td>米10年債利回り</td><td>4.474%</td><td>-</td><td>-</td><td class="text-down">低下 ↓</td><td>FRED基準</td></tr>
+                <tr><td>日本10年債利回り</td><td>2.705%</td><td>-</td><td>-</td><td class="text-down">低下 ↓</td><td>Investing.com終値</td></tr>
+                <tr><td>Fear & Greed Index</td><td>32 (Fear)</td><td>-</td><td>-</td><td class="text-neutral">警戒継続</td><td>CNN公式</td></tr>
+                <tr><td>日経225 予想PER</td><td>18.28倍</td><td>-</td><td>-</td><td>-</td><td>加重平均</td></tr>
+                <tr><td>日経225 PBR</td><td>2.99倍</td><td>-</td><td>-</td><td>-</td><td>nikkei225jp</td></tr>
+                <tr><td>東証P 値上がり銘柄数</td><td>677銘柄</td><td>-</td><td>-</td><td>-</td><td>kabutore.biz</td></tr>
+                <tr><td>東証P 値下がり銘柄数</td><td>831銘柄</td><td>-</td><td>-</td><td>-</td><td>kabutore.biz</td></tr>
+                <tr><td>東証P 騰落レシオ</td><td>取得不能</td><td>-</td><td>-</td><td>-</td><td>公式単一数値特定できず</td></tr>
+            </table>
+            <p style="font-size: 11px; color: var(--neutral-color);">
+                ※日経225の25日移動平均乖離率は+8%を超える水準（過熱警戒の「赤」シグナル）。昨日の東証プライム市場では日経平均が上昇しているにもかかわらず値下がり銘柄数（831銘柄）が多く、「一部の大型株主導の歪な上昇」でした。その反動で夜間の先物は急落（-1,030円）しています。
+            </p>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="panel" style="margin-bottom: 20px;">
+        <h2 class="section-title">各市場の見通し（個別判断）</h2>
+        <div class="panel-content market-view-grid">
+            
+            <div class="market-card">
+                <div class="market-card-header">
+                    日経225先物<br><span class="text-down">戻り売り</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li><strong>上昇要因：</strong>押し目待ちの投資家の買い。</li>
+                        <li><strong>下落要因：</strong>米国株の下落、米景気減速懸念、短期的な過熱感の解消。</li>
+                        <li><strong>メイン：</strong>70,000円を割り込んだことで調整局面入り。下値を模索しながら雇用統計を待つ展開。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：70,000</div>
+                    <div>下値：68,800</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    USD/JPY<br><span class="text-down">急落警戒</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li><strong>上昇要因：</strong>実質ゴトー日（5日が日曜、3日が米休場のため）に伴う仲値に向けた強烈な実需のドル買い。</li>
+                        <li><strong>下落要因：</strong>弱い米経済指標、雇用統計前のポジション調整。</li>
+                        <li><strong>メイン：</strong>東京時間は仲値に向けて実需が支える。通過後は雇用統計を控えて上値が重くなる展開。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：163.00</div>
+                    <div>下値：161.50</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    原油 (WTI)<br><span class="text-down">下落</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li><strong>メイン：</strong>70ドル台を回復できず、68〜69ドル台での軟調推移。</li>
+                        <li>米経済指標の悪化によるエネルギー需要の減退懸念。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：70.50</div>
+                    <div>下値：68.50</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    ゴールド<br><span class="text-up">上昇</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li><strong>メイン：</strong>4,000ドルをサポートとし、雇用統計の弱さを織り込んで上値を試す展開。</li>
+                        <li>米金利の低下、景気減速懸念による安全資産買い。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：4,030</div>
+                    <div>下値：3,980</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    EUR/USD<br><span class="text-down">弱含み</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li><strong>メイン：</strong>雇用統計までは方向感が出にくく、1.13後半でのレンジ推移。</li>
+                        <li>米国の指標悪化に伴うドル安と、欧州自体の経済の弱さが拮抗。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：1.1420</div>
+                    <div>下値：1.1350</div>
+                </div>
+            </div>
+
+            <div class="market-card">
+                <div class="market-card-header">
+                    BTCUSD<br><span class="text-up">大幅反発</span>
+                </div>
+                <div class="market-card-body">
+                    <ul class="bullet-list" style="font-size: 11px;">
+                        <li><strong>メイン：</strong>60,000ドルの大台奪還で底打ち感。60,000〜61,000ドルでの揉み合い。</li>
+                        <li>58,000ドル台での強烈な押し目買い、米金利低下によるリスクマネー流入。</li>
+                    </ul>
+                </div>
+                <div class="market-card-level">
+                    <div>上値：61,500</div>
+                    <div>下値：58,500</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="panel">
+        <h2 class="section-title">本日の重要イベント・リスク要因</h2>
+        <div class="panel-content">
+            <ul class="bullet-list">
+                <li><strong>09:55【日本】仲値決定（★実質ゴトー日のため極めて重要）</strong></li>
+                <li><strong>21:30【米国】6月雇用統計（非農業部門雇用者数、失業率） ★★★</strong></li>
+                <li><strong>23:00【米国】5月製造業新規受注</strong></li>
+                <li><strong>【シナリオ崩壊条件】</strong>米雇用統計が予想を大幅に上回る強い結果となった場合、米金利低下シナリオが崩壊し、急激なドル高・株高の全戻しが起きます。</li>
+                <li><strong>【リスク要因】</strong>東京時間はゴトー日の実需買いで支えられますが、それが一巡したあとの「真空地帯」や、米国連休前のポジション調整、為替介入のタイミングが重なる今夜は非常に危険です。</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
