@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マーケットレポート_2026-07-09_16-00</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-blue: #1e3a8a;
+        --light-blue: #eff6ff;
+        --border-color: #cbd5e1;
+        --text-main: #334155;
+        --text-dark: #0f172a;
+        --up-color: #ef4444;
+        --down-color: #3b82f6;
+        --neutral-color: #64748b;
+    }
+    
+    body {
+        margin: 0; padding: 20px;
+        background-color: #ffffff;
+        color: var(--text-main);
+        font-family: 'Noto Sans JP', sans-serif;
+        line-height: 1.6;
+        font-size: 13px;
+    }
+
+    .report-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        border: 1px solid var(--border-color);
+        padding: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid var(--primary-blue);
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+    }
+
+    .header-main h1 {
+        margin: 0;
+        font-size: 24px;
+        color: var(--primary-blue);
+        font-weight: 700;
+        word-break: keep-all;
+    }
+
+    .header-main .meta-info {
+        text-align: right;
+        font-size: 12px;
+        color: var(--text-main);
+    }
+
+    .section-title {
+        background-color: var(--primary-blue);
+        color: #ffffff;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .panel {
+        border: 1px solid var(--border-color);
+        height: 100%;
+        background-color: #ffffff;
+    }
+
+    .panel-content {
+        padding: 12px;
+    }
+
+    .summary-box {
+        background-color: #fefce8;
+        border: 1px solid #fde047;
+        padding: 12px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+    .summary-box h3 { margin: 0 0 8px 0; font-size: 15px; color: #854d0e; }
+
+    .bullet-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .bullet-list li {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 8px;
+    }
+    .bullet-list li::before {
+        content: '■';
+        position: absolute;
+        left: 0;
+        color: var(--primary-blue);
+        font-size: 10px;
+        top: 4px;
+    }
+    
+    .text-up { color: var(--up-color); font-weight: 700; }
+    .text-down { color: var(--down-color); font-weight: 700; }
+    .text-neutral { color: var(--neutral-color); font-weight: 700; }
+
+    .market-view-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .market-card {
+        border: 1px solid var(--border-color);
+        padding: 12px;
+        background-color: #f8fafc;
+    }
+    .market-card h4 {
+        margin: 0 0 10px 0;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 14px;
+        color: var(--primary-blue);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+        font-size: 12px;
+    }
+    th, td {
+        border: 1px solid var(--border-color);
+        padding: 6px;
+        text-align: left;
+    }
+    th {
+        background-color: var(--light-blue);
+        font-weight: 700;
+        width: 30%;
+    }
+    td { background-color: #ffffff; }
+
+    @media (max-width: 768px) {
+        .grid-layout { grid-template-columns: 1fr; }
+        .market-view-grid { grid-template-columns: 1fr; }
+        .header-main { flex-direction: column; align-items: flex-start; gap: 8px; }
+        .report-container { padding: 12px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="report-container">
+    <div class="header-main">
+        <h1>マーケットレポート｜2026/07/09（木）16:00（欧州時間入り口版）</h1>
+        <div class="meta-info">
+            作成日時：2026/07/09 16:00<br>
+            （日本時間）
+        </div>
+    </div>
+
+    <div class="summary-box">
+        <h3>■ 総合判断：米CPIを前に市場は完全な様子見。原油は高値圏で乱高下</h3>
+        <p style="margin: 0;">東京市場の大引けを迎え、欧州時間へ入る時間帯です。今夜21:30に発表される「米消費者物価指数（CPI）」という超大型イベントを前に、為替市場・株式市場ともに新たなポジションを傾ける動きは手控えられ、完全な「嵐の前の静けさ」となっています。ドル円は162.40円台で身動きが取れず、日経平均先物は68,400〜68,500円付近で膠着しています。一方で、中東情勢の緊迫化を背景とした原油市場（WTI）だけはボラティリティが高く、70ドル〜75ドルの間で荒い値動きを見せています。</p>
+    </div>
+
+    <!-- 全体概況 -->
+    <div class="grid-layout">
+        <div class="panel">
+            <h2 class="section-title">全体概況</h2>
+            <div class="panel-content">
+                <ul class="bullet-list">
+                    <li><strong>今日の相場テーマ：</strong>今夜の米CPIに向けた徹底的な「様子見」と、原油市場の「ボラティリティ」。</li>
+                    <li><strong>今日の主導市場：</strong>欧州勢も動きづらく、方向感なし。</li>
+                    <li><strong>前回からの変化：</strong>各市場とも12:00時点から大きなレベルチェンジはなし。</li>
+                    <li><strong>材料と値動きの整合性：</strong>特大マクロ指標（CPI）前は動かないのがセオリーであり、極めて正常な値動き。</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel">
+            <h2 class="section-title">資金フロー・需給・ニュース</h2>
+            <div class="panel-content">
+                <ul class="bullet-list">
+                    <li><strong>相場に影響しそうなニュース：</strong>特になし（すべての関心が21:30のCPIに集中）。</li>
+                    <li><strong>クロスアセット資金フロー：</strong>様子見の現金（ドル）化。</li>
+                    <li><strong>金利・債券市場：</strong>米金利も横ばい推移。</li>
+                    <li><strong>需給・ポジショニング：</strong>新規の買い・売りともに控えられ、既存ポジションの微調整のみ。</li>
+                    <li><strong>ポジションの偏り：</strong>ドルロング・円ショートに傾いたままCPIを迎える形。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel" style="margin-bottom: 20px;">
+        <h2 class="section-title">イベント・引き継ぎ・全体シナリオ</h2>
+        <div class="panel-content">
+            <ul class="bullet-list">
+                <li><strong>重要イベント：</strong>今夜 21:30 米・6月消費者物価指数（CPI）。</li>
+                <li><strong>リバランス・指数入替の事前警戒：</strong>特になし。</li>
+                <li><strong>次の時間帯（NY時間）への引き継ぎ：</strong>21:30の発表数字によって、今週後半から来週にかけての明確なトレンドが形成される。</li>
+                <li><strong>メインシナリオ（全体）：</strong>欧州時間は現在の水準（ドル円162.40円付近、日経先物68,400円付近）に張り付いたままNY時間を迎える。</li>
+                <li><strong>代替シナリオ（全体）：</strong>流動性が極端に低下している中、大口の仕掛け的な売りが出て一時的にドル円が162.00円を試す。</li>
+                <li><strong>シナリオが崩れる条件（全体）：</strong>欧州要人からの想定外の発言、または中東情勢の急激な変化。</li>
+                <li><strong>リスク要因（全体）：</strong>指標発表直前のスプレッド拡大と乱高下。</li>
+                <li><strong>最終判断：</strong>現在はリスクを取る時間帯ではありません。21:30の「米CPI」の結果と、それに対する市場の初動、さらにその後の本邦当局（為替介入）の動きをしっかりと見極めてからエントリーすることが最重要です。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel" style="margin-bottom: 20px;">
+        <h2 class="section-title">各市場の個別見通し (16:00時点)</h2>
+        <div class="panel-content market-view-grid">
+            
+            <!-- 日経225先物 -->
+            <div class="market-card">
+                <h4>日経225先物 (大取) <span class="text-neutral">様子見</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>68,400〜68,500円</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-neutral">小幅安</span></td></tr>
+                    <tr><th>方向感</th><td>横ばい →</td></tr>
+                    <tr><th>上昇要因</th><td>特になし。</td></tr>
+                    <tr><th>下落要因</th><td>米CPIへの警戒感。</td></tr>
+                    <tr><th>需給・ポジション</th><td>手控えムード。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 69,000円 / 下値 68,000円</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】68,000円 / 【レ】69,000円</td></tr>
+                    <tr><th>メインシナリオ</th><td>欧州時間は方向感なく揉み合い。</td></tr>
+                    <tr><th>代替シナリオ</th><td>特になし。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>特になし。</td></tr>
+                </table>
+            </div>
+
+            <!-- USD/JPY -->
+            <div class="market-card">
+                <h4>USD/JPY <span class="text-neutral">様子見</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>162.42円近辺</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-neutral">横ばい</span></td></tr>
+                    <tr><th>方向感</th><td>横ばい →</td></tr>
+                    <tr><th>上昇要因</th><td>日米金利差。</td></tr>
+                    <tr><th>下落要因</th><td>本邦介入警戒、ポジション調整。</td></tr>
+                    <tr><th>需給・ポジション</th><td>膠着。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 163.00円 / 下値 162.00円</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】162.00円 / 【レ】163.00円</td></tr>
+                    <tr><th>メインシナリオ</th><td>162.40〜162.60円での狭いレンジ推移。</td></tr>
+                    <tr><th>代替シナリオ</th><td>特になし。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>指標前の突発的なフラッシュ・クラッシュ（急落）。</td></tr>
+                </table>
+            </div>
+
+            <!-- 原油 (WTI) -->
+            <div class="market-card">
+                <h4>原油 (WTI) <span class="text-neutral">レンジ</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>69.60〜75.00ドル（乱高下）</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-neutral">不安定</span></td></tr>
+                    <tr><th>方向感</th><td>横ばい →</td></tr>
+                    <tr><th>上昇要因</th><td>中東の地政学リスク。</td></tr>
+                    <tr><th>下落要因</th><td>急上昇に対する利益確定売り。</td></tr>
+                    <tr><th>需給・ポジション</th><td>ボラティリティが非常に高い。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 75.00ドル / 下値 69.50ドル</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】69.50ドル / 【レ】75.00ドル</td></tr>
+                    <tr><th>メインシナリオ</th><td>ヘッドラインに振らされる荒い値動きが継続。</td></tr>
+                    <tr><th>代替シナリオ</th><td>特になし。</td></tr>
+                    <tr><th>崩れる条件</th><td>地政学リスクの後退。</td></tr>
+                    <tr><th>リスク要因</th><td>突発的なニュースによる急変。</td></tr>
+                </table>
+            </div>
+
+            <!-- ゴールド -->
+            <div class="market-card">
+                <h4>ゴールド (XAU/USD) <span class="text-neutral">様子見</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>高値圏（国内 23,490円/g）</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-neutral">横ばい</span></td></tr>
+                    <tr><th>方向感</th><td>横ばい →</td></tr>
+                    <tr><th>上昇要因</th><td>有事の金買い。</td></tr>
+                    <tr><th>下落要因</th><td>ドル高圧力。</td></tr>
+                    <tr><th>需給・ポジション</th><td>CPI待ち。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 4,100ドル / 下値 4,000ドル</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】4,000ドル / 【レ】4,100ドル</td></tr>
+                    <tr><th>メインシナリオ</th><td>方向感なく推移。</td></tr>
+                    <tr><th>代替シナリオ</th><td>特になし。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>特になし。</td></tr>
+                </table>
+            </div>
+
+            <!-- EUR/USD -->
+            <div class="market-card">
+                <h4>EUR/USD <span class="text-neutral">様子見</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>1.1400〜1.1425ドル</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-neutral">横ばい</span></td></tr>
+                    <tr><th>方向感</th><td>横ばい →</td></tr>
+                    <tr><th>上昇要因</th><td>特になし。</td></tr>
+                    <tr><th>下落要因</th><td>特になし。</td></tr>
+                    <tr><th>需給・ポジション</th><td>動意薄。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 1.1450ドル / 下値 1.1380ドル</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】1.1380ドル / 【レ】1.1450ドル</td></tr>
+                    <tr><th>メインシナリオ</th><td>1.14台前半でのレンジ相場。</td></tr>
+                    <tr><th>代替シナリオ</th><td>特になし。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>特になし。</td></tr>
+                </table>
+            </div>
+
+            <!-- BTCUSD -->
+            <div class="market-card">
+                <h4>BTCUSD <span class="text-neutral">レンジ</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>約64,000ドル (1,038万円)</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-neutral">横ばい</span></td></tr>
+                    <tr><th>方向感</th><td>横ばい →</td></tr>
+                    <tr><th>上昇要因</th><td>特になし。</td></tr>
+                    <tr><th>下落要因</th><td>リスクオフムードの波及。</td></tr>
+                    <tr><th>需給・ポジション</th><td>上値が重い。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 65,000ドル / 下値 62,000ドル</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】62,000ドル / 【レ】65,000ドル</td></tr>
+                    <tr><th>メインシナリオ</th><td>64,000ドル付近での揉み合い。</td></tr>
+                    <tr><th>代替シナリオ</th><td>CPI前にポジション調整で63,000ドルへ下落。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>特になし。</td></tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
