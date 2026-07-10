@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マーケットレポート_2026-07-10_21-00</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-blue: #1e3a8a;
+        --light-blue: #eff6ff;
+        --border-color: #cbd5e1;
+        --text-main: #334155;
+        --text-dark: #0f172a;
+        --up-color: #ef4444;
+        --down-color: #3b82f6;
+        --neutral-color: #64748b;
+    }
+    
+    body {
+        margin: 0; padding: 20px;
+        background-color: #ffffff;
+        color: var(--text-main);
+        font-family: 'Noto Sans JP', sans-serif;
+        line-height: 1.6;
+        font-size: 13px;
+    }
+
+    .report-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        border: 1px solid var(--border-color);
+        padding: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid var(--primary-blue);
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+    }
+
+    .header-main h1 {
+        margin: 0;
+        font-size: 24px;
+        color: var(--primary-blue);
+        font-weight: 700;
+        word-break: keep-all;
+    }
+
+    .header-main .meta-info {
+        text-align: right;
+        font-size: 12px;
+        color: var(--text-main);
+    }
+
+    .section-title {
+        background-color: var(--primary-blue);
+        color: #ffffff;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .panel {
+        border: 1px solid var(--border-color);
+        height: 100%;
+        background-color: #ffffff;
+    }
+
+    .panel-content {
+        padding: 12px;
+    }
+
+    .summary-box {
+        background-color: #fefce8;
+        border: 1px solid #fde047;
+        padding: 12px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+    .summary-box h3 { margin: 0 0 8px 0; font-size: 15px; color: #854d0e; }
+
+    .bullet-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .bullet-list li {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 8px;
+    }
+    .bullet-list li::before {
+        content: '■';
+        position: absolute;
+        left: 0;
+        color: var(--primary-blue);
+        font-size: 10px;
+        top: 4px;
+    }
+    
+    .text-up { color: var(--up-color); font-weight: 700; }
+    .text-down { color: var(--down-color); font-weight: 700; }
+    .text-neutral { color: var(--neutral-color); font-weight: 700; }
+
+    .market-view-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .market-card {
+        border: 1px solid var(--border-color);
+        padding: 12px;
+        background-color: #f8fafc;
+    }
+    .market-card h4 {
+        margin: 0 0 10px 0;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 14px;
+        color: var(--primary-blue);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+        font-size: 12px;
+    }
+    th, td {
+        border: 1px solid var(--border-color);
+        padding: 6px;
+        text-align: left;
+    }
+    th {
+        background-color: var(--light-blue);
+        font-weight: 700;
+        width: 30%;
+    }
+    td { background-color: #ffffff; }
+
+    @media (max-width: 768px) {
+        .grid-layout { grid-template-columns: 1fr; }
+        .market-view-grid { grid-template-columns: 1fr; }
+        .header-main { flex-direction: column; align-items: flex-start; gap: 8px; }
+        .report-container { padding: 12px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="report-container">
+    <div class="header-main">
+        <h1>マーケットレポート｜2026/07/10（金）21:00（NY時間入り口版）</h1>
+        <div class="meta-info">
+            作成日時：2026/07/10 21:00<br>
+            （日本時間）
+        </div>
+    </div>
+
+    <div class="summary-box">
+        <h3>■ 総合判断：指標なき週末のNY市場、ドル円は円買い圧力が続き161.70円台へ下落</h3>
+        <p style="margin: 0;">いよいよ今週最後の取引時間帯であるNYセッションに入ります。今夜は米国の重要指標（CPIやPPI等）の発表が一切ないため、純粋なテクニカルとポジション調整が主導する相場となります。ドル円は、日中の財務相発言（国内投資への回帰）や介入警戒感の余韻を引きずり、欧州勢の戻り売りにも押されて161.70円台へとさらに円高が進行しています。日経225先物は69,300円台で高止まりしており、NY株のオープン待ちとなっています。</p>
+    </div>
+
+    <!-- 全体概況 -->
+    <div class="grid-layout">
+        <div class="panel">
+            <h2 class="section-title">全体概況</h2>
+            <div class="panel-content">
+                <ul class="bullet-list">
+                    <li><strong>今日の相場テーマ：</strong>週末のポジションクローズ（利益確定・損切り）と、介入への警戒感。</li>
+                    <li><strong>今日の主導市場：</strong>欧州勢の引け（ロンドンフィキシング）へ向けたフロー。</li>
+                    <li><strong>前回からの変化：</strong>ドル円が162.30円台から161.70円台へと円高進行。</li>
+                    <li><strong>材料と値動きの整合性：</strong>重要な指標がない中で「ドルロング（ドル買い）ポジション」を週末に持ち越したくない投資家による手仕舞い売り（ドル売り・円買い）が出ており、セオリー通りの動き。</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel">
+            <h2 class="section-title">資金フロー・需給・ニュース</h2>
+            <div class="panel-content">
+                <ul class="bullet-list">
+                    <li><strong>相場に影響しそうなニュース：</strong>特になし。米CPI・PPIは来週に予定されているため、新規の材料は枯渇気味。</li>
+                    <li><strong>クロスアセット資金フロー：</strong>株式市場から一部資金が抜け、安全資産寄りの動き。</li>
+                    <li><strong>金利・債券市場：</strong>米長期金利は大きな動きを見せず小幅な上下動。</li>
+                    <li><strong>需給・ポジショニング：</strong>ドル円は高値掴みしたロングポジションの投げ売り（損切り）が散見される。</li>
+                    <li><strong>ポジションの偏り：</strong>ドル円はまだロングに傾いており、下落余地を残す。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel" style="margin-bottom: 20px;">
+        <h2 class="section-title">イベント・引き継ぎ・全体シナリオ</h2>
+        <div class="panel-content">
+            <ul class="bullet-list">
+                <li><strong>重要イベント：</strong>特になし。マクロ指標カレンダーは白紙。</li>
+                <li><strong>リバランス・指数入替の事前警戒：</strong>24:00 ロンドンフィキシング（週末・月末フローが交錯しやすい時間帯）。</li>
+                <li><strong>次の時間帯（来週）への引き継ぎ：</strong>来週（7/14のCPI、7/15のPPI）という超特大イベントに向けて、ポジションを極力軽くして週末を終える動きが中心。</li>
+                <li><strong>メインシナリオ（全体）：</strong>ドル円は戻り売り優勢で161.50円を試す展開。日経平均はNY株次第だが、高値圏にあるため利益確定売りに押されて69,000円を割り込む。</li>
+                <li><strong>代替シナリオ（全体）：</strong>NY株が想定外の急伸を見せ、それに連れ高して日経先物が69,500円を突破。ドル円もリスクオンで162円台を回復。</li>
+                <li><strong>シナリオが崩れる条件（全体）：</strong>週末の流動性低下を狙ったヘッジファンド等の仕掛け的な大口売買。</li>
+                <li><strong>リスク要因（全体）：</strong>深夜の「フラッシュ・クラッシュ（瞬間的な大暴落）」。</li>
+                <li><strong>最終判断：</strong>今週もお疲れ様でした。今夜は「指標がない金曜日の夜」という、ある意味最も油断しやすく、不可解な動き（急騰・急落）が起きやすい時間帯です。ポジションを持っている場合は早めの決済を心がけ、新規エントリーは見送るのが賢明です。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel" style="margin-bottom: 20px;">
+        <h2 class="section-title">各市場の個別見通し (21:00時点)</h2>
+        <div class="panel-content market-view-grid">
+            
+            <!-- 日経225先物 -->
+            <div class="market-card">
+                <h4>日経225先物 (大取) <span class="text-down">戻り売り</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>69,370円前後</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-up">大幅高圏</span></td></tr>
+                    <tr><th>方向感</th><td>上値重い ↘</td></tr>
+                    <tr><th>上昇要因</th><td>米国株の堅調さへの期待。</td></tr>
+                    <tr><th>下落要因</th><td>週末の利益確定売り、円高進行。</td></tr>
+                    <tr><th>需給・ポジション</th><td>利食い優先。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 69,500円 / 下値 68,500円</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】68,500円 / 【レ】69,500円</td></tr>
+                    <tr><th>メインシナリオ</th><td>NYオープン後に手仕舞い売りが出て69,000円割れへ。</td></tr>
+                    <tr><th>代替シナリオ</th><td>NY株高に連れ高し69,500円を突破。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>特になし。</td></tr>
+                </table>
+            </div>
+
+            <!-- USD/JPY -->
+            <div class="market-card">
+                <h4>USD/JPY <span class="text-down">戻り売り</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>161.72円近辺</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-down">下落</span></td></tr>
+                    <tr><th>方向感</th><td>軟調 ↘</td></tr>
+                    <tr><th>上昇要因</th><td>押し目買い。</td></tr>
+                    <tr><th>下落要因</th><td>週末のポジション調整、介入警戒感。</td></tr>
+                    <tr><th>需給・ポジション</th><td>手仕舞いのドル売り（円買い）が優勢。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 162.20円 / 下値 161.20円</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】161.20円 / 【レ】162.20円</td></tr>
+                    <tr><th>メインシナリオ</th><td>上値が重く、161.50円のサポートを試す展開。</td></tr>
+                    <tr><th>代替シナリオ</th><td>161.50円で反発し、162.00円付近までショートカバー。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>流動性低下時の仕掛け売り。</td></tr>
+                </table>
+            </div>
+
+            <!-- 原油 (WTI) -->
+            <div class="market-card">
+                <h4>原油 (WTI) <span class="text-neutral">様子見</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>74.12ドル</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-up">反発</span></td></tr>
+                    <tr><th>方向感</th><td>横ばい →</td></tr>
+                    <tr><th>上昇要因</th><td>買い戻し。</td></tr>
+                    <tr><th>下落要因</th><td>高値圏での利益確定。</td></tr>
+                    <tr><th>需給・ポジション</th><td>売り買い交錯。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 75.00ドル / 下値 73.00ドル</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】73.00ドル / 【レ】75.00ドル</td></tr>
+                    <tr><th>メインシナリオ</th><td>74ドル台での揉み合い。</td></tr>
+                    <tr><th>代替シナリオ</th><td>特になし。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>特になし。</td></tr>
+                </table>
+            </div>
+
+            <!-- ゴールド -->
+            <div class="market-card">
+                <h4>ゴールド (XAU/USD) <span class="text-neutral">様子見</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>高値圏（国内 23,733円/g）</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-neutral">横ばい</span></td></tr>
+                    <tr><th>方向感</th><td>横ばい →</td></tr>
+                    <tr><th>上昇要因</th><td>ドル安に伴う割安感。</td></tr>
+                    <tr><th>下落要因</th><td>週末の利食い。</td></tr>
+                    <tr><th>需給・ポジション</th><td>方向感なし。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 4,150ドル / 下値 4,100ドル</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】4,100ドル / 【レ】4,150ドル</td></tr>
+                    <tr><th>メインシナリオ</th><td>現在の価格帯での小動き。</td></tr>
+                    <tr><th>代替シナリオ</th><td>特になし。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>特になし。</td></tr>
+                </table>
+            </div>
+
+            <!-- EUR/USD -->
+            <div class="market-card">
+                <h4>EUR/USD <span class="text-up">押し目買い</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>1.1441ドル</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-up">上昇</span></td></tr>
+                    <tr><th>方向感</th><td>強含み ↑</td></tr>
+                    <tr><th>上昇要因</th><td>ドル安の受け皿。</td></tr>
+                    <tr><th>下落要因</th><td>週末の手仕舞い売り。</td></tr>
+                    <tr><th>需給・ポジション</th><td>買い優勢。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 1.1480ドル / 下値 1.1400ドル</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】1.1400ドル / 【レ】1.1480ドル</td></tr>
+                    <tr><th>メインシナリオ</th><td>1.14台半ばを固め、じり高の展開。</td></tr>
+                    <tr><th>代替シナリオ</th><td>特になし。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>特になし。</td></tr>
+                </table>
+            </div>
+
+            <!-- BTCUSD -->
+            <div class="market-card">
+                <h4>BTCUSD <span class="text-neutral">レンジ</span></h4>
+                <table>
+                    <tr><th>現在価格</th><td>63,221ドル</td></tr>
+                    <tr><th>前日比 / 騰落率</th><td><span class="text-up">強含み</span></td></tr>
+                    <tr><th>方向感</th><td>横ばい →</td></tr>
+                    <tr><th>上昇要因</th><td>米国株の底堅さ。</td></tr>
+                    <tr><th>下落要因</th><td>週末の流動性低下。</td></tr>
+                    <tr><th>需給・ポジション</th><td>様子見姿勢。</td></tr>
+                    <tr><th>重要価格帯</th><td>上値 64,500ドル / 下値 62,000ドル</td></tr>
+                    <tr><th>サポ / レジ</th><td>【サ】62,000ドル / 【レ】64,500ドル</td></tr>
+                    <tr><th>メインシナリオ</th><td>63,000ドル台でのレンジ相場。</td></tr>
+                    <tr><th>代替シナリオ</th><td>土日に向けた仕掛け売りで62,000ドル割れ。</td></tr>
+                    <tr><th>崩れる条件</th><td>特になし。</td></tr>
+                    <tr><th>リスク要因</th><td>特になし。</td></tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
