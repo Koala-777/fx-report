@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antigravity AI | プレミアム相場見通しレポート一覧</title>
+<title>Antigravity AI | プレミアム相場見通しレポート</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
         line-height: 1.6;
     }
     
-    .container { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+    .container { max-width: 1440px; margin: 0 auto; position: relative; z-index: 1; }
     
     /* Background subtle animated glow */
     .bg-glow {
@@ -61,495 +61,251 @@
         box-shadow: 0 0 15px rgba(192,132,252,0.4); text-transform: uppercase;
     }
     .header h1 {
-        margin: 0; font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 700;
+        margin: 0; font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 700;
         background: linear-gradient(to right, #ffffff, #94a3b8);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
+    .timestamp { font-size: 16px; color: var(--neon-blue); font-family: 'Outfit', sans-serif; font-weight: 300; }
 
-    /* List styling */
-    .report-list {
-        display: flex; flex-direction: column; gap: 16px;
-    }
-    
-    .report-item {
-        display: block; text-decoration: none;
+    /* Glassmorphism Cards */
+    .glass-panel {
         background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border); border-radius: 12px; padding: 20px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        border: 1px solid var(--glass-border); border-radius: 16px; padding: 24px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: relative; overflow: hidden;
     }
-    .report-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(96, 165, 250, 0.1);
-        border-color: rgba(96, 165, 250, 0.5);
-    }
-    .report-item::before {
-        content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-        background: var(--neon-blue); border-radius: 12px 0 0 12px; opacity: 0.5;
-        transition: opacity 0.3s ease;
-    }
-    .report-item:hover::before { opacity: 1; }
-
-    .report-title {
-        font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 600;
-        color: var(--text-main); margin: 0 0 4px 0;
-    }
-    .report-desc {
-        font-size: 13px; color: var(--text-muted); margin: 0;
+    .glass-panel:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(96, 165, 250, 0.1);
+        border-color: rgba(255, 255, 255, 0.15);
     }
     
-    .view-btn {
-        position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
-        color: var(--neon-blue); font-size: 14px; font-weight: 600; font-family: 'Outfit', sans-serif;
-        text-transform: uppercase; letter-spacing: 1px;
+    /* Panel decoration */
+    .glass-panel::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+        background: var(--neon-blue); border-radius: 16px 0 0 16px; opacity: 0.5;
+    }
+    .glass-panel.purple-accent::before { background: var(--neon-purple); }
+    .glass-panel.green-accent::before { background: var(--neon-green); }
+
+    .panel-title {
+        font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500;
+        margin: 0 0 20px 0; color: #fff; letter-spacing: 0.5px;
+        display: flex; align-items: center; gap: 8px;
     }
 
+    /* Grid Layouts */
+    .grid { display: grid; gap: 24px; }
+    .layout-top { grid-template-columns: 2fr 1fr; margin-bottom: 24px; }
+    .layout-markets { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 24px; }
+    .layout-details { grid-template-columns: repeat(3, 1fr); margin-bottom: 24px; }
+
+    /* Market Tickers */
+    .ticker { text-align: center; }
+    .ticker .name { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .ticker .price { font-size: 24px; font-family: 'Outfit', sans-serif; font-weight: 700; margin: 8px 0; }
+    .up { color: var(--neon-green); text-shadow: 0 0 8px rgba(52, 211, 153, 0.4); }
+    .down { color: var(--neon-red); text-shadow: 0 0 8px rgba(248, 113, 113, 0.4); }
+    .neutral { color: var(--neon-yellow); text-shadow: 0 0 8px rgba(251, 191, 36, 0.4); }
+    
+    /* Antigravity AI Insights Section */
+    .ai-insight-box {
+        background: linear-gradient(135deg, rgba(192,132,252,0.1), rgba(96,165,250,0.05));
+        border-radius: 12px; padding: 16px; margin-top: 12px;
+        border: 1px solid rgba(192,132,252,0.3); position: relative;
+    }
+    .ai-insight-box::after {
+        content: 'AI PREDICTION'; position: absolute; top: -10px; right: 16px;
+        background: var(--bg-dark); color: var(--neon-purple); font-size: 10px;
+        padding: 2px 8px; border: 1px solid var(--neon-purple); border-radius: 10px; letter-spacing: 1px;
+    }
+
+    ul.custom-list { list-style: none; padding: 0; margin: 0; }
+    ul.custom-list li {
+        position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 14px;
+    }
+    ul.custom-list li::before {
+        content: '▹'; position: absolute; left: 0; top: 0; color: var(--neon-blue); font-size: 16px;
+    }
+
+    /* Volatility Gauges / Progress Bars */
+    .volatility-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 16px; overflow: hidden; position: relative; }
+    .volatility-fill { height: 100%; background: linear-gradient(90deg, var(--neon-green), var(--neon-red)); width: 80%; border-radius: 3px; }
+    .volatility-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; }
+
+    /* Scenario Tags */
+    .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
+    .scenario-card { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+    .scenario-title { font-size: 12px; font-weight: 600; margin-bottom: 4px; display: flex; justify-content: space-between;}
+
+    /* Mobile Responsive */
     @media (max-width: 768px) {
-        body { padding: 16px; }
+        .layout-top { grid-template-columns: 1fr; }
+        .layout-details { grid-template-columns: 1fr; }
+        .layout-markets { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .header { flex-direction: column; align-items: flex-start; gap: 12px; }
         .header h1 { font-size: 24px; }
-        .view-btn { display: none; }
+        body { padding: 12px; }
+        .glass-panel { padding: 16px; }
     }
 </style>
 </head>
 <body>
 <div class="bg-glow"></div>
+<div style="text-align:center; margin-bottom: 20px;"><img src="20260724_2312_report.jpg" alt="Market Dashboard" style="max-width:100%; border-radius:16px; border:1px solid rgba(255,255,255,0.1);"></div>
 <div class="bg-glow-2"></div>
 
 <div class="container">
     <div class="header">
         <div class="header-brand">
-            <span class="ai-badge">Antigravity AI Archive</span>
-            <h1>相場の見通しレポート 過去一覧</h1>
+            <span class="ai-badge">Antigravity AI Report</span>
+            <h1>市場インテリジェンス・ダッシュボード</h1>
+        </div>
+        <div class="timestamp">UPDATE: 2026/07/24 23:12 JST</div>
+    </div>
+
+    <!-- AI Overview & Heatmap -->
+    <div class="grid layout-top">
+        <div class="glass-panel purple-accent">
+            <h2 class="panel-title"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> AIマクロシンセシス (市場の全体俯瞰)</h2>
+            <ul class="custom-list">
+                <li><span style="color:var(--neon-red); font-weight:600;">インフレの再燃リスク：</span>米ハイテク株（AI・半導体関連）の調整が同時進行し、投資家心理が悪化。米国債利回りが高止まりする中で、株式市場全体への売り圧力が継続。</li>
+                <li><span style="color:var(--neon-yellow); font-weight:600;">地政学プレミアムの拡大：</span>中東情勢の緊迫化を背景に、原油高懸念が再燃。インフレ長期化の火種としてリスクオフを加速。</li>
+                <li><span style="color:var(--neon-blue); font-weight:600;">円安・介入のチキンレース：</span>USD/JPYは163.80円付近で高止まり。強固な日米金利差がドルをサポートする一方、リスクオフの円買いも交錯。</li>
+            </ul>
+            <div class="ai-insight-box">
+                <strong style="color:var(--text-main);">Antigravity AI 分析:</strong> 市場は明確な「リスクオフ・フェーズ」に移行しており、VIXの上昇とハイテク株の売りが重なる複合的なストレスに晒されています。資金はドルとゴールドへ向かいやすい特異なフローを形成中です。
+            </div>
+        </div>
+
+        <div class="glass-panel green-accent">
+            <h2 class="panel-title"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> 今夜のクリティカル・イベント</h2>
+            <ul class="custom-list" style="margin-top: 16px;">
+                <li style="margin-bottom: 16px;">
+                    <div style="font-size: 18px; font-weight:600; color:var(--text-main);">中東情勢の緊迫化</div>
+                    <div style="font-size: 12px; color:var(--text-muted);">原油価格の急騰と地政学プレミアムの拡大による市場全体のパニックリスク。</div>
+                </li>
+                <li>
+                    <div style="font-size: 18px; font-weight:600; color:var(--neon-red);">ハイテク株の調整</div>
+                    <div style="font-size: 12px; color:var(--text-muted);">AI・半導体株のバリュエーション調整。ナスダックの動向がアジア市場のセンチメントを決定。</div>
+                </li>
+            </ul>
         </div>
     </div>
 
-    <div class="report-list" id="report-list">
-        <!-- 以下のリンクが自動で追加されていきます -->
-        <a href="20260724_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/24 21:00 レポート (NY時間入り口版)</h2>
-            <p class="report-desc">アジアのパニック安一服。原油急落（90ドル割れ）とPCEデフレーター前のショートカバー。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260724_1200_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/24 12:00 レポート (※14:00遅延配信版)</h2>
-            <p class="report-desc">日経平均2,000円近い大暴落。米金利4.7%超の直撃でセリング・クライマックスの様相。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260724_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-blue);">
-            <h2 class="report-title">2026/07/24 07:00 レポート (東京時間入り口版)</h2>
-            <p class="report-desc">米金利4.7%超えと原油92ドル突破でパニック的な株安。インフレショックが直撃。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260723_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/23 21:00 レポート (NY時間入り口版)</h2>
-            <p class="report-desc">原油高止まりと金利上昇がNY市場の重しに。インフレ再燃懸念 vs 決算期待の攻防。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260723_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/23 16:00 レポート (東京時間終了後版)</h2>
-            <p class="report-desc">原油急騰によるインフレ懸念の再燃で、欧州株と米株先物が下落。スタグフレーション警戒。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260723_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-blue);">
-            <h2 class="report-title">2026/07/23 07:00 レポート (東京時間入り口版)</h2>
-            <p class="report-desc">テクノロジー決算への警戒と地政学リスク（原油高）の綱引き。米金利は上昇し、Nasdaqは軟調。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260722_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/22 16:00 レポート</h2>
-            <p class="report-desc">上値が重くなった日経平均（66,065円）と、163円台に完全に定着したドル円。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260722_1200_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/22 12:00 レポート</h2>
-            <p class="report-desc">日経平均の強烈な「3,000円超の反発」と、163円台で介入のチキンレースを続けるドル円。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260722_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/22 07:00 レポート</h2>
-            <p class="report-desc">ついに163円台へと上値ブレイクを果たしたドル円と、コモディティ（原油・金）への資金流入。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260717_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/17 21:00 レポート</h2>
-            <p class="report-desc">歴史的大暴落を終えた日経平均（64,141円）と、株安に巻き込まれず週末を控えるドル円（162.34円）。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260717_1200_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/17 12:00 レポート</h2>
-            <p class="report-desc">日経平均の「さらなる約3,000円の大暴落」と、パニック相場の中で無風を貫くドル円（162.37円）。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260717_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/17 07:00 レポート</h2>
-            <p class="report-desc">ハイテク株の調整下落と、株安に動じずジリ高を続けるドル円（162.37円）。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260716_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/16 21:00 レポート</h2>
-            <p class="report-desc">ECB政策金利と米小売売上高を控えた「嵐の前の静けさ」。株安連鎖への警戒と膠着するドル円（162.14円）。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260716_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/16 16:00 レポート</h2>
-            <p class="report-desc">半導体・ハイテク株を中心とした日経平均の「約2,000円の歴史的暴落」と、162円台で無風のドル円。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260716_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/16 07:00 レポート</h2>
-            <p class="report-desc">米PPI通過による「適温相場（ゴルディロックス）」の継続。米国株の全面高と、162円台で静かに底を固めるドル円。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260715_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/15 21:00 レポート</h2>
-            <p class="report-desc">米PPI（生産者物価指数）に向けた様子見と、じり高で推移するドル円（162.31円）。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260715_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/15 16:00 レポート</h2>
-            <p class="report-desc">日経平均の歴史的急騰（大引け68,613円）と、162円台をキープする底堅いドル円。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260715_1200_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/15 12:00 レポート</h2>
-            <p class="report-desc">日経平均の「超絶ギャップアップ（前引け約1,580円高）」と、162円台で高止まりするドル円。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260715_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/15 07:00 レポート</h2>
-            <p class="report-desc">米CPIショック後の揉み合い。インフレ鈍化による株高（ハイテク主導）と、原油高によるインフレ再燃懸念の綱引き。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260714_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/14 21:00 レポート</h2>
-            <p class="report-desc">米CPI（3.50%）の下振れショック。インフレ鈍化による「米利下げ期待の急浮上」とドル売り・株高への急転換。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260714_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/14 16:00 レポート</h2>
-            <p class="report-desc">原油（WTI）の異常な急騰（79ドル台へ）と、欧州勢参入に伴うドル円の上値追い（162.44円）。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260714_1200_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/14 12:00 レポート</h2>
-            <p class="report-desc">東京市場は日経平均下落（前引け-564円）。為替は162.40円水準で高止まりし、様子見ムード。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260714_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/14 07:00 レポート</h2>
-            <p class="report-desc">原油急騰（WTI 77ドル台）を背景とした、強烈なドル買いのNYクローズ。介入警戒を飲み込むドル高。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260713_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/13 21:00 レポート</h2>
-            <p class="report-desc">中東情勢を受けたパニック的リスクオフと、強烈な為替介入警戒によるドル円の急落（161円台半ばへ）。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260713_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/13 16:00 レポート</h2>
-            <p class="report-desc">中東の地政学リスク急拡大（ホルムズ海峡封鎖報道）による、原油急騰とリスクオフのドル買い・株売り。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260713_1200_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/13 12:00 レポート</h2>
-            <p class="report-desc">東京市場は底堅い推移。実需の円売りが観測されるも、全体としてはCPI待ちのレンジ相場が継続。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260713_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/13 07:00 レポート</h2>
-            <p class="report-desc">週明けのオセアニア市場は波乱なくオープン。火曜の「米CPI」に向けた様子見相場がスタート。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260712_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/12 21:00 レポート</h2>
-            <p class="report-desc">翌朝のオセアニア市場オープンに向けた静かな待機姿勢と、暗号資産市場の底堅さ。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260712_2000_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/12 20:00 レポート (V1.0テスト稼働版)</h2>
-            <p class="report-desc">新マニュアルVersion 1.0に基づいたレポート作成テスト。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260712_1900_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/12 19:00 レポート (日曜特別版)</h2>
-            <p class="report-desc">週末のサプライズニュースは限定的。月曜日は波乱なくスタートし、火曜のCPIへ直行へ。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260711_0900_report.html" class="report-item" style="border-left: 4px solid var(--neon-blue);">
-            <h2 class="report-title">2026/07/11 09:00 レポート (週間クローズ総括版)</h2>
-            <p class="report-desc">ドル円は161.70円で越週。来週の「超特大イベント（米CPI）」に向けた嵐の前の静けさ。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260710_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/07/10 21:00 レポート (NY時間入り口版)</h2>
-            <p class="report-desc">指標なき週末のNY市場、ドル円は円買い圧力が続き161.70円台へ下落。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260710_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/10 16:00 レポート (欧州時間入り口版)</h2>
-            <p class="report-desc">日本株は69,100円台で高止まり。欧州時間は週末のポジション調整に警戒。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260710_1200_report.html" class="report-item" style="border-left: 4px solid var(--neon-green);">
-            <h2 class="report-title">2026/07/10 12:00 レポート (東京時間中間版)</h2>
-            <p class="report-desc">日経平均先物が69,300円台へ急反発！ 一方でドル円は161.90円台へ下落。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260710_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-blue);">
-            <h2 class="report-title">2026/07/10 07:00 レポート (東京時間入り口版)</h2>
-            <p class="report-desc">米CPIを波乱なく消化し、ドル円は162円台半ばで底堅く推移。週末要因に警戒。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260709_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/07/09 21:00 レポート (NY時間入り口版)</h2>
-            <p class="report-desc">米CPI直前、日経平均は警戒感から急落。ドル円は162.30円台。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260709_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/09 16:00 レポート (欧州時間入り口版)</h2>
-            <p class="report-desc">米CPIを前に市場は完全な様子見。原油は高値圏で乱高下。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260709_1200_report.html" class="report-item" style="border-left: 4px solid var(--neon-green);">
-            <h2 class="report-title">2026/07/09 12:00 レポート (東京時間中間版)</h2>
-            <p class="report-desc">中東の地政学リスク再燃で原油急騰。ドル円は162円台後半で高止まり。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260709_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-blue);">
-            <h2 class="report-title">2026/07/09 07:00 レポート (東京時間入り口版)</h2>
-            <p class="report-desc">パウエル証言通過でドル高円安が進行。ドル円は162円台後半へ。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260708_2230_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/07/08 22:30 レポート (本日総括版)</h2>
-            <p class="report-desc">パウエル証言を無難に消化し、ドル円は162円台半ばへジリ高。原油は反発。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260707_2300_report.html" class="report-item" style="border-left: 4px solid var(--neon-blue);">
-            <h2 class="report-title">2026/07/07 23:00 レポート (テスト公開版)</h2>
-            <p class="report-desc">パウエル議長の議会証言を控え、日経平均は利益確定売りに押される。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260707_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/07/07 21:00 レポート</h2>
-            <p class="report-desc">重要イベント前で様子見ムード優勢、株高・金利高の底堅さ</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260706_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/07/06 21:00 レポート (NY時間入り口版)</h2>
-            <p class="report-desc">米休場明けのNY勢参入で相場に活気。ドル円は162円台を堅守。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260706_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/06 16:00 レポート (欧州時間入り口版)</h2>
-            <p class="report-desc">日経平均は高値圏で揉み合い。ドル円は162円台を回復し円安基調継続。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260703_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/07/03 21:00 レポート (NY時間入り口版)</h2>
-            <p class="report-desc">米国休場で完全な閑散相場。ドル円は週末のポジション調整で160円台後半へやや軟化。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260703_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/03 16:00 レポート (欧州時間入り口版)</h2>
-            <p class="report-desc">日経平均は大引けにかけて69,591円へ続伸。米国休場を前に欧州時間は様子見か。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260703_1200_report.html" class="report-item" style="border-left: 4px solid var(--primary-color);">
-            <h2 class="report-title">2026/07/03 12:00 レポート (東京時間前場引け版)</h2>
-            <p class="report-desc">日経平均は一時1,100円超の急落から猛烈な切り返し。ドル円も161円台を回復。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260703_0700_report.html" class="report-item" style="border-left: 4px solid var(--primary-color);">
-            <h2 class="report-title">2026/07/03 07:00 レポート (東京時間入り口版)</h2>
-            <p class="report-desc">米雇用統計は大失速。利下げ期待再燃でドル円は160円台へ。本日は米国休場で流動性低下に警戒。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260702_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/07/02 21:00 レポート (NY時間入り口版)</h2>
-            <p class="report-desc">ドル売り円買いが加速中。運命の『米雇用統計』まで残りわずか。市場は弱い結果を先取り。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260702_1600_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/02 16:00 レポート (欧州時間入り口版)</h2>
-            <p class="report-desc">恐れていた事態が的中。日経平均の1,700円超の大暴落と、実需の支えを失い161円台へ急落したドル円。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260702_1200_report.html" class="report-item" style="border-left: 4px solid var(--neon-blue);">
-            <h2 class="report-title">2026/07/02 12:00 レポート (途中経過版)</h2>
-            <p class="report-desc">日経平均の強烈な調整と、実需に支えられるドル円。今夜は米雇用統計に向けたリスクオフ進行。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260702_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-blue);">
-            <h2 class="report-title">2026/07/02 07:00 レポート (詳細版)</h2>
-            <p class="report-desc">米景気減速のサインと、実質ゴトー日のドル需要が交錯する複雑な1日。今夜は米雇用統計。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260701_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/07/01 21:00 レポート (欧州〜NY前)</h2>
-            <p class="report-desc">日銀短観の絶好調を無視してドル円は162.80円台へ暴走！日経平均は1,500円上昇の猛ラリー。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260630_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/06/30 21:00 レポート (欧州〜NY前)</h2>
-            <p class="report-desc">ドル円がついに162円を突破！日経平均は7万円台を回復するも、介入警戒が極限まで高まる。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260630_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/06/30 07:00 レポート (詳細版)</h2>
-            <p class="report-desc">週明けNY市場は「ハイテク株の劇的な反発」！ドル円は161.90円台で介入警戒の極みへ。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260626_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/06/26 21:00 レポート (欧州〜NY前)</h2>
-            <p class="report-desc">週末を控えゴールドが歴史的4,000ドル台へ急反発！ドル円は介入警戒で161.60円台の膠着状態。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260625_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/06/25 21:00 レポート (欧州〜NY前)</h2>
-            <p class="report-desc">【速報】米PCEの上振れでドル高・金利高が加速！ドル円161.80円突破で介入警戒MAX、ゴールドは急落。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260625_1200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/25 12:00 レポート (途中経過版)</h2>
-            <p class="report-desc">日経平均は+4%の歴史的急騰。ドル円はゴトー日の買いでも162円を抜けず、ゴールドは4,000ドル割れ。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260625_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/06/25 07:00 レポート (詳細版)</h2>
-            <p class="report-desc">マイクロン決算が超絶ポジティブ。ドル高進行でゴールドは4,000ドル割れ目前の急落。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260624_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/06/24 21:00 レポート (欧州〜NY前)</h2>
-            <p class="report-desc">強烈なドル高でゴールドは4,100ドル割れの大幅安。ドル円は161.70円台で高値更新の緊張状態。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260623_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/06/23 21:00 レポート (欧州〜NY前)</h2>
-            <p class="report-desc">日経平均は2,000円超の大暴落で69,000円台へ。ドル独歩高でゴールドも4,140ドルまで一段安。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260623_1200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/23 12:00 レポート (途中経過版)</h2>
-            <p class="report-desc">日経平均は利益確定売りに押され71,600円台へ。為替は介入警戒で161円台半ばの膠着状態。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260623_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/06/23 07:00 レポート (詳細版)</h2>
-            <p class="report-desc">ダウ反発もナスダック下落のまちまちな展開。日経225は買われすぎ水準で利益確定売りに警戒。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260622_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/06/22 21:00 レポート</h2>
-            <p class="report-desc">日経平均72,350円台！米金利4.49%で高止まり、ドル円は161.75円付近でもみ合い。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260622_2200_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple);">
-            <h2 class="report-title">2026/06/22 22:00 レポート</h2>
-            <p class="report-desc">日経平均72,353.96円！米金利4.499%に迫り、ドル円は161.75円で一触即発の事態。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260619_2200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/19 22:00 レポート</h2>
-            <p class="report-desc">日経平均最高値更新！金相場は4,152ドルへパニック的暴落、ドル円は161.26円で介入厳戒態勢。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260619_1200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/19 12:00 レポート</h2>
-            <p class="report-desc">日銀介入警戒で161.25円の膠着。金相場は4,208.50ドルへ急落しサポート割れ！</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260619_0700_report.html" class="report-item" style="border-left: 4px solid var(--neon-red);">
-            <h2 class="report-title">2026/06/19 07:00 レポート (ALERT)</h2>
-            <p class="report-desc">防衛線崩壊！ドル円161.81円まで急伸し日銀介入警戒MAX。日経先物は72,000円到達！</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260618_2200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/18 22:00 レポート</h2>
-            <p class="report-desc">日経先物は71,640.00円と青天井！英中銀据え置きも、ドル円は160.68円へとジリ高。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260618_1600_report.html" class="report-item">
-            <h2 class="report-title">2026/06/18 16:00 レポート</h2>
-            <p class="report-desc">日経平均は71,053.49円で歴史的着地！ドル円は160.58円で介入警戒から極度の膠着状態。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260618_1200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/18 12:00 レポート</h2>
-            <p class="report-desc">中東和平の歴史的ニュースで日経平均が7万1000円台へ大暴騰！ドル円は160.50円で介入警戒の神経戦。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260618_0700_report.html" class="report-item">
-            <h2 class="report-title">2026/06/18 07:00 レポート</h2>
-            <p class="report-desc">FOMCはタカ派サプライズ！年内追加利上げ示唆でドル円は160.80円へ急騰、米株は500ドル安。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260617_2200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/17 22:00 レポート</h2>
-            <p class="report-desc">米小売売上高は予想を上回る強さ！しかしドル円はFOMC警戒から160.27円付近で上値重くもみ合い。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260617_1600_report.html" class="report-item">
-            <h2 class="report-title">2026/06/17 16:00 レポート</h2>
-            <p class="report-desc">日経平均は一時7万100円をつけ大引けで過去最高値更新！欧州時間も今夜のFOMC待ちで為替は極小レンジの膠着。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260617_1200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/17 12:00 レポート</h2>
-            <p class="report-desc">日経平均は前引けで大幅高となり7万円目前。ドル円は160.35円付近で今夜のFOMCに向け究極の様子見。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260617_0700_report.html" class="report-item">
-            <h2 class="report-title">2026/06/17 07:00 レポート</h2>
-            <p class="report-desc">米ダウ平均が初の5万2000ドル突破！為替は今夜のFOMC（ウォーシュ新議長）待ちで完全な様子見。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260616_2200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/16 22:00 レポート</h2>
-            <p class="report-desc">日銀利上げを無難に通過し日経平均は最高値更新。原油は76ドル台へ暴落し、相場の関心はFOMCへシフト。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260615_2200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/15 22:00 レポート</h2>
-            <p class="report-desc">米国とイランの和平合意期待で株高・原油安進行。日銀会合＆FOMC前の静観モード。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260615_1600_report.html" class="report-item">
-            <h2 class="report-title">2026/06/15 16:00 レポート</h2>
-            <p class="report-desc">日経平均が69,317円の過去最高値を記録！中東和平合意が好感される。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260615_1200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/15 12:00 レポート</h2>
-            <p class="report-desc">日経平均6万8000円台へ突入。原油急落とドル安の進行。ゴールド急反発。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260615_0745_report.html" class="report-item">
-            <h2 class="report-title">2026/06/15 07:45 レポート</h2>
-            <p class="report-desc">日銀会合スタート。日経平均先物が大暴騰で日本株はギャップアップ確実視。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260612_2200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/12 22:00 レポート</h2>
-            <p class="report-desc">地政学リスク急低下（イランへの攻撃中止示唆）による原油急落と金利低下。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260612_1700_report.html" class="report-item">
-            <h2 class="report-title">2026/06/12 17:00 レポート</h2>
-            <p class="report-desc">日銀の国債減額観測で円高圧力。植田総裁の「ハト派的」発言に警戒。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260611_2200_report.html" class="report-item">
-            <h2 class="report-title">2026/06/11 22:00 レポート</h2>
-            <p class="report-desc">米PPI上振れによるインフレ再燃リスク。ECB政策金利を控え乱高下に警戒。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
-        <a href="20260611_1932_report.html" class="report-item">
-            <h2 class="report-title">2026/06/11 19:30 レポート</h2>
-            <p class="report-desc">米CPIショック後のインフレ長期化懸念。ドル円160.50円で為替介入警戒。</p>
-            <span class="view-btn">View Report →</span>
-        </a>
+    <!-- Live Tickers -->
+    <div class="glass-panel" style="margin-bottom: 24px; padding: 20px;">
+        <a href="20260727_2100_report.html" class="report-item" style="border-left: 4px solid var(--neon-purple); text-decoration: none; display: flex; flex-direction: column; justify-content: center; padding: 16px; margin-bottom: 24px; background: rgba(192,132,252,0.1); border-radius: 8px;">
+            <h2 class="report-title" style="margin: 0; font-size: 18px; color: #fff;">2026/07/27 21:00 レポート (NY時間入り口版)</h2>
+            <p class="report-desc" style="font-size: 14px; color: var(--text-muted); margin: 5px 0;">米イラン軍事衝突「一時停止」で原油暴落・株急騰リスクオン</p>
+            <span class="view-btn" style="font-size: 12px; color: var(--neon-blue); font-weight: bold;">View Report →</span>
+        </a>
+        <div class="grid layout-markets">
+            <div class="ticker">
+                <div class="name">US 10Y Yield</div>
+                <div class="price up">4.71%</div>
+                <div class="name">高止まりブレイク警戒</div>
+            </div>
+            <div class="ticker">
+                <div class="name">WTI Crude</div>
+                <div class="price down">89.50</div>
+                <div class="name">利益確定売り</div>
+            </div>
+            <div class="ticker">
+                <div class="name">Gold (XAU)</div>
+                <div class="price up">4,065</div>
+                <div class="name">資金逃避先</div>
+            </div>
+            <div class="ticker">
+                <div class="name">Nikkei 225</div>
+                <div class="price down">37,120</div>
+                <div class="name">リスクオフ波及</div>
+            </div>
+            <div class="ticker">
+                <div class="name">USD/JPY</div>
+                <div class="price neutral">163.80</div>
+                <div class="name">介入警戒で膠着</div>
+            </div>
+            <div class="ticker">
+                <div class="name">EUR/USD</div>
+                <div class="price down">1.0850</div>
+                <div class="name">ドル高圧力</div>
+            </div>
+            <div class="ticker">
+                <div class="name">BTC/USD</div>
+                <div class="price down">65,000</div>
+                <div class="name">リスク資金流出</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deep Dive Panels -->
+    <div class="grid layout-details">
+        <!-- USD/JPY -->
+        <div class="glass-panel">
+            <h2 class="panel-title">USD/JPY <span style="font-size:12px; background: rgba(251,191,36,0.2); color:var(--neon-yellow); padding: 2px 8px; border-radius: 12px; margin-left: auto;">もみ合い/介入警戒</span></h2>
+            <div style="font-size: 32px; font-family: 'Outfit'; font-weight: 700;">163.80</div>
+            <p style="font-size: 13px; color:var(--text-muted); margin-bottom: 16px;">
+                米金利の強烈な上昇圧力と、日本の通貨当局による防衛ラインが激突。マグマが溜まっている状態。
+            </p>
+            <div class="volatility-bar"><div class="volatility-fill" style="width: 85%;"></div></div>
+            <div class="volatility-label"><span>ブレイク期待値</span><span>HIGH</span></div>
+            
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="up">▲ 上振れシナリオ</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">指標強結果で金利上昇。突破で介入発動の危険域へ。</div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="down">▼ 調整シナリオ</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">リスクオフの円買いが強まり、一旦のガス抜き。スピード調整。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EUR/USD -->
+        <div class="glass-panel">
+            <h2 class="panel-title">EUR/USD <span style="font-size:12px; background: rgba(248,113,113,0.2); color:var(--neon-red); padding: 2px 8px; border-radius: 12px; margin-left: auto;">下落圧力</span></h2>
+            <div style="font-size: 32px; font-family: 'Outfit'; font-weight: 700;">1.0850</div>
+            <p style="font-size: 13px; color:var(--text-muted); margin-bottom: 16px;">
+                米国の「インフレ再燃」と欧州の「利下げ模索」のコントラストが浮き彫りに。テクニカルな底抜けリスク。
+            </p>
+            <div class="volatility-bar"><div class="volatility-fill" style="width: 90%;"></div></div>
+            <div class="volatility-label"><span>今夜の変動率予測</span><span>EXTREME</span></div>
+
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="up">▲ 反発シナリオ</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">米指標下振れでショートカバー。</div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="down">▼ 下抜けシナリオ</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">米指標強で大台割れ、下落トレンド加速。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gold (XAUUSD) -->
+        <div class="glass-panel">
+            <h2 class="panel-title">ゴールド (XAU) <span style="font-size:12px; background: rgba(52,211,153,0.2); color:var(--neon-green); padding: 2px 8px; border-radius: 12px; margin-left: auto;">上昇警戒</span></h2>
+            <div style="font-size: 32px; font-family: 'Outfit'; font-weight: 700;">4,065 <span style="font-size: 14px; color:var(--text-muted);">USD/oz</span></div>
+            <p style="font-size: 13px; color:var(--text-muted); margin-bottom: 16px;">
+                地政学リスクと株式市場のボラティリティ上昇により、「安全資産への逃避需要」が堅調に推移。
+            </p>
+            <div class="volatility-bar"><div class="volatility-fill" style="width: 75%;"></div></div>
+            <div class="volatility-label"><span>上値警戒レベル</span><span>WARNING</span></div>
+
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="up">▲ 続伸シナリオ</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">市場のパニック売りが加速し、さらなる資金流入。</div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-title"><span class="down">▼ 調整シナリオ</span></div>
+                    <div style="font-size: 11px; color:var(--text-muted);">金利上昇が加速すれば、利益確定で大台割れを試す。</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
